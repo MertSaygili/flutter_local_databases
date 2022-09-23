@@ -19,6 +19,7 @@ class EmployeeModel {
     required this.entryYear,
   });
 
+  // we are mapping the employee model to insert SQFLite
   Map<String, dynamic> toMap() {
     return <String, dynamic>{
       'id': id,
