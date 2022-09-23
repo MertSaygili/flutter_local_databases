@@ -31,4 +31,9 @@ class EmployeeModel {
       'entryYear': entryYear.toString(), // sqflite doest not support date time
     };
   }
+
+  @override
+  String toString() {
+    return 'Employee($id, $name, $surname, $department, $phoneNumber, $eMail, $gender, $entryYear)';
+  }
 }
