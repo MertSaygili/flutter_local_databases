@@ -1,6 +1,8 @@
-import 'package:flutter_local_databases/SQFlite/core/model/employee_model.dart';
-import 'package:sqflite/sqflite.dart';
+// ignore: depend_on_referenced_packages
 import 'package:path/path.dart';
+import 'package:sqflite/sqflite.dart';
+
+import 'package:flutter_local_databases/SQFlite/core/model/employee_model.dart';
 
 class DatabaseManager {
   Database? _database;
@@ -36,13 +38,14 @@ class DatabaseManager {
   Future<void> _createDatabase(Database db, int version) async {
     await db.execute('''
       CREATE TABLE $_tableName (
-        id INTEGER PRIMARY KEY AUTOINCREMENT,
-        name VARCHAR(30), surname VARCHAR(30),
-        department VARCHAR(30),
-        phoneNumber VARCHAR(11),
-        eMail VARCHAR(25),
-        gender INTEGER,
-        entryYear TEXT)
+        $_id INTEGER PRIMARY KEY AUTOINCREMENT,
+        $_name VARCHAR(30),
+        $_surname VARCHAR(30),
+        $_department VARCHAR(30),
+        $_phoneNumber VARCHAR(11),
+        $_eMail VARCHAR(25),
+        $_gender INTEGER,
+        $_entryYear TEXT)
     ''');
   }
 
@@ -55,6 +58,7 @@ class DatabaseManager {
       orderBy: 'id ASC', // ascending order
     );
 
+    // we convert <String, Object> to List
     return List.generate(
       data.length,
       (index) => EmployeeModel(
@@ -70,14 +74,44 @@ class DatabaseManager {
     );
   }
 
+  // adds employee to database
   Future<void> insert(EmployeeModel employee) async {
     final db = await database;
 
     db.insert(
       _tableName,
       employee.toMap(),
+
       // if employee model is same it will replace with old employee model
       conflictAlgorithm: ConflictAlgorithm.replace,
     );
+  }
+
+  // updates employee and adds to database
+  Future<void> update(EmployeeModel employee, int id) async {
+    final db = await database;
+
+    db.update(
+      _tableName,
+      employee.toMap(),
+      where: 'id == ?',
+      whereArgs: [id],
+    );
+  }
+
+  // deletes employee from database
+  Future<void> delete(int id) async {
+    final db = await database;
+
+    db.delete(
+      _tableName,
+      where: 'id == ?',
+      whereArgs: [id],
+    );
+  }
+
+  // closes database
+  void closeDatabase() {
+    _database!.close();
   }
 }
