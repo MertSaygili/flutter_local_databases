@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_local_databases/SQFlite/widgets/custom_appbar.dart';
 import 'package:flutter_local_databases/SQFlite/widgets/custom_elevatedbutton.dart';
+import 'package:flutter_local_databases/constants/constanst.dart';
 
 class MainPageView extends StatefulWidget {
   const MainPageView({super.key});
@@ -10,6 +11,7 @@ class MainPageView extends StatefulWidget {
 }
 
 class _MainPageViewState extends State<MainPageView> {
+  late final IconItems _icons = IconItems();
   final String _showEmployees = 'show employees';
   final String _addEmployee = 'add employee';
   final String _updateEmployee = 'update employee';
@@ -24,10 +26,26 @@ class _MainPageViewState extends State<MainPageView> {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            CustomElevatedButton(fun: null, buttonText: _showEmployees),
-            CustomElevatedButton(fun: null, buttonText: _addEmployee),
-            CustomElevatedButton(fun: null, buttonText: _updateEmployee),
-            CustomElevatedButton(fun: null, buttonText: _deleteEmployee),
+            CustomElevatedButton(
+              fun: null,
+              buttonText: _showEmployees,
+              icon: _icons.iconAccountCircle,
+            ),
+            CustomElevatedButton(
+              fun: null,
+              buttonText: _addEmployee,
+              icon: _icons.iconAdd,
+            ),
+            CustomElevatedButton(
+              fun: null,
+              buttonText: _updateEmployee,
+              icon: _icons.iconUpdate,
+            ),
+            CustomElevatedButton(
+              fun: null,
+              buttonText: _deleteEmployee,
+              icon: _icons.iconRemoveCircle,
+            ),
           ],
         ),
       ),

@@ -21,6 +21,10 @@ class CustomDarkTheme {
       appBarTheme: _appbarTheme(),
       textTheme: _textTheme(),
       elevatedButtonTheme: _elevatedButtonTheme(),
+      iconTheme: IconThemeData(
+        color: _colors.colorWhite,
+        size: _fontSizes.iconSizeMedium,
+      ),
     );
   }
 
