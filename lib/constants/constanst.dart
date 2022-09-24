@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 class FontSizes {
   final double titleMedium = 24;
-  final double buttonMedium = 20;
+  final double buttonMedium = 18;
 }
 
 class ColorItems {

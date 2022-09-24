@@ -17,9 +17,15 @@ class CustomElevatedButton extends StatefulWidget {
 class _CustomElevatedButtonState extends State<CustomElevatedButton> {
   @override
   Widget build(BuildContext context) {
-    return ElevatedButton(
-      onPressed: () {},
-      child: Text(widget.buttonText),
+    return Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: ElevatedButton(
+        onPressed: () {},
+        child: Text(
+          widget.buttonText,
+          style: Theme.of(context).textTheme.labelMedium,
+        ),
+      ),
     );
   }
 }

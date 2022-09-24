@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 class CustomAppbar extends StatelessWidget with PreferredSizeWidget {
   CustomAppbar({super.key});
 
-  final double _prefferedSizeHeight = 100;
+  final double _prefferedSizeHeight = 50;
   final String _titleAppbar = 'Employee Manager App';
 
   @override

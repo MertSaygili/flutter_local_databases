@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_local_databases/SQFlite/widgets/custom_appbar.dart';
+import 'package:flutter_local_databases/SQFlite/widgets/custom_elevatedbutton.dart';
 
 class MainPageView extends StatefulWidget {
   const MainPageView({super.key});
@@ -9,6 +10,11 @@ class MainPageView extends StatefulWidget {
 }
 
 class _MainPageViewState extends State<MainPageView> {
+  final String _showEmployees = 'show employees';
+  final String _addEmployee = 'add employee';
+  final String _updateEmployee = 'update employee';
+  final String _deleteEmployee = 'delete employee';
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -18,13 +24,10 @@ class _MainPageViewState extends State<MainPageView> {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            ElevatedButton(
-              onPressed: () {},
-              child: Text(
-                'show employees',
-                style: Theme.of(context).textTheme.labelMedium,
-              ),
-            ),
+            CustomElevatedButton(fun: null, buttonText: _showEmployees),
+            CustomElevatedButton(fun: null, buttonText: _addEmployee),
+            CustomElevatedButton(fun: null, buttonText: _updateEmployee),
+            CustomElevatedButton(fun: null, buttonText: _deleteEmployee),
           ],
         ),
       ),

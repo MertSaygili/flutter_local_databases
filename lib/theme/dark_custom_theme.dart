@@ -48,7 +48,7 @@ class CustomDarkTheme {
       labelMedium: TextStyle(
         fontSize: _fontSizes.buttonMedium,
         color: _colors.colorWhite,
-        fontWeight: FontWeight.w500,
+        fontWeight: FontWeight.w300,
       ),
     );
   }
