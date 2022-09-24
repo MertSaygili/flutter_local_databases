@@ -4,6 +4,9 @@ class CustomDarkTheme {
   late final ThemeData theme;
 
   CustomDarkTheme() {
-    theme = ThemeData.dark().copyWith();
+    theme = ThemeData(
+      brightness: Brightness.dark,
+      fontFamily: 'RobotoMono',
+    );
   }
 }
