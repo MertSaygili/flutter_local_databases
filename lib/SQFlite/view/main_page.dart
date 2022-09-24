@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_local_databases/SQFlite/view/add_employee_page.dart';
+import 'package:flutter_local_databases/SQFlite/view/delete_employee_page.dart';
+import 'package:flutter_local_databases/SQFlite/view/show_employees_page.dart';
+import 'package:flutter_local_databases/SQFlite/view/update_employee_page.dart';
 import 'package:flutter_local_databases/SQFlite/widgets/custom_appbar.dart';
 import 'package:flutter_local_databases/SQFlite/widgets/custom_elevatedbutton.dart';
 import 'package:flutter_local_databases/constants/constanst.dart';
@@ -27,28 +31,36 @@ class _MainPageViewState extends State<MainPageView> {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             CustomElevatedButton(
-              fun: null,
+              fun: () => _navigateToPage(const ShowEmployeesPageView()),
               buttonText: _showEmployees,
               icon: _icons.iconAccountCircle,
             ),
             CustomElevatedButton(
-              fun: null,
+              fun: () => _navigateToPage(const AddEmployeePageView()),
               buttonText: _addEmployee,
               icon: _icons.iconAdd,
             ),
             CustomElevatedButton(
-              fun: null,
+              fun: () => _navigateToPage(const UpdateEmployeePageView()),
               buttonText: _updateEmployee,
               icon: _icons.iconUpdate,
             ),
             CustomElevatedButton(
-              fun: null,
+              fun: () => _navigateToPage(const DeleteEmployeePageView()),
               buttonText: _deleteEmployee,
               icon: _icons.iconRemoveCircle,
             ),
           ],
         ),
       ),
+    );
+  }
+
+  void _navigateToPage(Widget page) {
+    Navigator.of(context).push(
+      MaterialPageRoute(builder: (context) {
+        return page;
+      }),
     );
   }
 }

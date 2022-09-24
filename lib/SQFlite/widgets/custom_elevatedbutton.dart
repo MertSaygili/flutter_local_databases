@@ -1,15 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_local_databases/SQFlite/view/show_employees_page.dart';
 import 'package:flutter_local_databases/constants/constanst.dart';
 
 class CustomElevatedButton extends StatefulWidget {
   const CustomElevatedButton({
     super.key,
-    this.fun,
+    required this.fun,
     required this.buttonText,
     required this.icon,
   });
 
-  final Function? fun;
+  final Function fun;
   final String buttonText;
   final Icon icon;
 
@@ -23,7 +24,7 @@ class _CustomElevatedButtonState extends State<CustomElevatedButton> {
     return Padding(
       padding: PaddingItems().paddingElevatedButton,
       child: ElevatedButton(
-        onPressed: () {},
+        onPressed: () => widget.fun(),
         child: Stack(
           children: [
             _alignText(context),
