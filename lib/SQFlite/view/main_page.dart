@@ -19,7 +19,12 @@ class _MainPageViewState extends State<MainPageView> {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             ElevatedButton(
-                onPressed: () {}, child: const Text('show employees')),
+              onPressed: () {},
+              child: Text(
+                'show employees',
+                style: Theme.of(context).textTheme.labelMedium,
+              ),
+            ),
           ],
         ),
       ),
