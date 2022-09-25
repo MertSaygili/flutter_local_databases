@@ -54,10 +54,22 @@ class CustomDarkTheme {
         letterSpacing: 1,
         wordSpacing: -1,
       ),
+      labelLarge: TextStyle(
+        fontSize: _fontSizes.labelLarge,
+        color: _colors.colorWhite,
+        fontWeight: FontWeight.w300,
+        letterSpacing: 1,
+      ),
       labelMedium: TextStyle(
         fontSize: _fontSizes.buttonMedium,
         color: _colors.colorWhite,
         fontWeight: FontWeight.w300,
+      ),
+      labelSmall: TextStyle(
+        fontSize: _fontSizes.labelSmall,
+        color: _colors.colorGray,
+        fontWeight: FontWeight.w400,
+        letterSpacing: 1,
       ),
     );
   }

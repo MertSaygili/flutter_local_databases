@@ -1,0 +1,49 @@
+import 'package:flutter/material.dart';
+import 'package:flutter_local_databases/constants/constanst.dart';
+
+class CustomTextfield extends StatefulWidget {
+  const CustomTextfield({
+    super.key,
+    this.fun,
+    required this.labelText,
+    required this.hintText,
+    required this.inputAction,
+    required this.inputType,
+  });
+
+  final Function? fun;
+  final String labelText;
+  final String hintText;
+  final TextInputAction inputAction;
+  final TextInputType inputType;
+
+  @override
+  State<CustomTextfield> createState() => _CustomTextfieldState();
+}
+
+class _CustomTextfieldState extends State<CustomTextfield> {
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: PaddingItems().paddingTextField,
+      child: TextField(
+        onSubmitted: (value) {
+          widget.fun!();
+        },
+        textInputAction: widget.inputAction,
+        keyboardType: widget.inputType,
+        autocorrect: true,
+        decoration: InputDecoration(
+          border: ShapeItems().borderTextfield,
+          label: Text(widget.labelText),
+          hintText: widget.hintText,
+          labelStyle: Theme.of(context).textTheme.labelMedium,
+          floatingLabelStyle: Theme.of(context).textTheme.labelLarge,
+          hintStyle: Theme.of(context).textTheme.labelSmall,
+          isDense: false,
+          suffixIcon: IconItems().iconAccountCircle,
+        ),
+      ),
+    );
+  }
+}
