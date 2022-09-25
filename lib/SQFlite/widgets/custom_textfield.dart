@@ -22,13 +22,16 @@ class CustomTextfield extends StatefulWidget {
 }
 
 class _CustomTextfieldState extends State<CustomTextfield> {
+  String _callbackText = '';
+
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: PaddingItems().paddingTextField,
       child: TextField(
         onSubmitted: (value) {
-          widget.fun!();
+          _callbackText = '${widget.hintText}.$value';
+          widget.fun!(_callbackText);
         },
         textInputAction: widget.inputAction,
         keyboardType: widget.inputType,

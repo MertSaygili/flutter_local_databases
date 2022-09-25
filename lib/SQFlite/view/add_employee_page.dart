@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_local_databases/SQFlite/core/database/database_manager.dart';
+import 'package:flutter_local_databases/SQFlite/core/model/employee_model.dart';
 import 'package:flutter_local_databases/SQFlite/widgets/custom_appbar.dart';
 import 'package:flutter_local_databases/SQFlite/widgets/custom_textfield.dart';
 
@@ -26,8 +27,8 @@ class _AddEmployeePageViewState extends State<AddEmployeePageView> {
       body: Column(
         children: [
           CustomTextfield(
-            labelText: 'Employee name',
-            hintText: 'Employee name',
+            labelText: 'name',
+            hintText: 'employee name',
             inputAction: _inputActionNext,
             inputType: _inputTypeText,
           ),
@@ -36,5 +37,9 @@ class _AddEmployeePageViewState extends State<AddEmployeePageView> {
     );
   }
 
-  void saveText(String val) {}
+  void saveText(String val) {
+    String name = 'name';
+    EmployeeModel x = EmployeeModel(name: 'name', surname: 'surname', department: 'department', phoneNumber: 'phoneNumber', eMail: 'eMail', gender: false, entryYear: DateTime.now(),);
+    print()
+  }
 }
