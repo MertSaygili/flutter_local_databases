@@ -14,10 +14,21 @@ class ColorItems {
 
 class BorderRaidusItems {
   final BorderRadius borderRadiusButton = BorderRadius.circular(10);
+  final BorderRadius borderRadiusCard = BorderRadius.circular(15);
 }
 
 class PaddingItems {
   final EdgeInsets paddingElevatedButton = const EdgeInsets.all(8);
+  final EdgeInsets paddingCard = const EdgeInsets.symmetric(
+    vertical: 10,
+    horizontal: 15,
+  );
+}
+
+class ShapeItems {
+  final RoundedRectangleBorder shapeCard = RoundedRectangleBorder(
+    borderRadius: BorderRaidusItems().borderRadiusCard,
+  );
 }
 
 class IconItems {
