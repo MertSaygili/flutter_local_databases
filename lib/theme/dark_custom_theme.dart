@@ -6,14 +6,12 @@ class CustomDarkTheme {
   late final FontSizes _fontSizes;
   late final ColorItems _colors;
   late final BorderRaidusItems _borderRaidusItems;
-  late final PaddingItems _paddingItems;
 
   CustomDarkTheme() {
     // initiliaze
     _fontSizes = FontSizes();
     _colors = ColorItems();
     _borderRaidusItems = BorderRaidusItems();
-    _paddingItems = PaddingItems();
 
     theme = ThemeData(
       brightness: Brightness.dark,
@@ -48,6 +46,13 @@ class CustomDarkTheme {
         fontSize: _fontSizes.titleMedium,
         fontWeight: FontWeight.w300,
         color: _colors.colorWhite,
+      ),
+      headlineMedium: TextStyle(
+        fontSize: _fontSizes.headlineMedium,
+        fontWeight: FontWeight.w600,
+        color: _colors.colorWhite,
+        letterSpacing: 1,
+        wordSpacing: -1,
       ),
       labelMedium: TextStyle(
         fontSize: _fontSizes.buttonMedium,

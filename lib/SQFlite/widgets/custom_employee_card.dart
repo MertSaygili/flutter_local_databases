@@ -12,52 +12,113 @@ class CustomEmployeeCard extends StatefulWidget {
 }
 
 class _CustomEmployeeCardState extends State<CustomEmployeeCard> {
-  final String _manAvatar = 'assets/images/man_avatar.png';
-  final String _womanAvatar = 'assets/images/woman_avatar.png';
+  final double _elevation = 15;
+  final double _sizedBoxHeight = 180;
+  final int _topPadding = 7;
 
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: PaddingItems().paddingCard,
-      child: Card(
-        shape: ShapeItems().shapeCard,
-        child: Column(
-          children: [
-            Stack(
+      padding: PaddingItems().paddingBetweenCards,
+      child: SizedBox(
+        width: MediaQuery.of(context).size.width,
+        height: _sizedBoxHeight,
+        child: Card(
+          elevation: _elevation,
+          shape: ShapeItems().shapeCard,
+          child: Padding(
+            padding: PaddingItems().paddingInsideCard,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Align(
-                  alignment: Alignment.centerLeft,
-                  child: Image.asset(
-                    _chooseAvatar(),
-                    width: 152,
-                    height: 152,
-                  ),
+                _RowImageText(data: widget.employeeModel, function: _textRow),
+                _textRow(
+                  '${widget.employeeModel.phoneNumber} - ${widget.employeeModel.eMail}',
+                  _topPadding,
                 ),
-                Align(
-                  alignment: Alignment.center,
-                  child: Column(
-                    children: [
-                      Text(
-                        '${widget.employeeModel.name} ${widget.employeeModel.surname}',
-                      ),
-                    ],
-                  ),
-                )
               ],
-            )
-          ],
+            ),
+          ),
         ),
       ),
     );
   }
 
+  Padding _textRow(String text, int top) {
+    return Padding(
+      padding: EdgeInsets.only(top: top.toDouble()),
+      child: Text(
+        text,
+        style: Theme.of(context).textTheme.headlineMedium,
+      ),
+    );
+  }
+}
+
+class _RowImageText extends StatelessWidget {
+  const _RowImageText({required this.data, required this.function});
+
+  final Function function;
+  final EmployeeModel data;
+
+  final String _manAvatar = 'assets/images/man_avatar.png';
+  final String _womanAvatar = 'assets/images/woman_avatar.png';
+  final String _threeCharacterSpace = '   ';
+  final double _imageSize = 100;
+  final int _topPadding = 7;
+  final int _flex = 1;
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      mainAxisAlignment: MainAxisAlignment.start,
+      children: [
+        Expanded(
+          flex: _flex,
+          child: _imageAsset(),
+        ),
+        Expanded(
+          flex: _flex * 3,
+          child: Padding(
+            padding: const EdgeInsets.only(left: 30),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                function(
+                  '${data.id}- ${data.name} ${data.surname}',
+                  _topPadding,
+                ),
+                function(
+                  '$_threeCharacterSpace${data.department}',
+                  _topPadding,
+                ),
+                function(_correctDateForm(), _topPadding),
+              ],
+            ),
+          ),
+        )
+      ],
+    );
+  }
+
+  String _correctDateForm() {
+    return '$_threeCharacterSpace${data.entryYear.day}:${data.entryYear.month}:${data.entryYear.year}';
+  }
+
   String _chooseAvatar() {
     // gender ? 1 : 0 -> 1 = woman, 0 = man
 
-    if (widget.employeeModel.gender) {
+    if (data.gender) {
       return _womanAvatar;
     } else {
       return _manAvatar;
     }
   }
+
+  Image _imageAsset() => Image.asset(
+        _chooseAvatar(),
+        width: _imageSize,
+        height: _imageSize,
+      );
 }
