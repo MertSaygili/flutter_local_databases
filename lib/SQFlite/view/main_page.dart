@@ -7,6 +7,8 @@ import 'package:flutter_local_databases/SQFlite/widgets/custom_appbar.dart';
 import 'package:flutter_local_databases/SQFlite/widgets/custom_elevatedbutton.dart';
 import 'package:flutter_local_databases/constants/constanst.dart';
 
+import '../core/database/database_manager.dart';
+
 class MainPageView extends StatefulWidget {
   const MainPageView({super.key});
 
@@ -15,6 +17,8 @@ class MainPageView extends StatefulWidget {
 }
 
 class _MainPageViewState extends State<MainPageView> {
+  final db = DatabaseManager(); // database
+
   late final IconItems _icons = IconItems();
   final String _showEmployees = 'show employees';
   final String _addEmployee = 'add employee';
@@ -31,22 +35,22 @@ class _MainPageViewState extends State<MainPageView> {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             CustomElevatedButton(
-              fun: () => _navigateToPage(const ShowEmployeesPageView()),
+              fun: () => _navigateToPage(ShowEmployeesPageView(db: db)),
               buttonText: _showEmployees,
               icon: _icons.iconAccountCircle,
             ),
             CustomElevatedButton(
-              fun: () => _navigateToPage(const AddEmployeePageView()),
+              fun: () => _navigateToPage(AddEmployeePageView(db: db)),
               buttonText: _addEmployee,
               icon: _icons.iconAdd,
             ),
             CustomElevatedButton(
-              fun: () => _navigateToPage(const UpdateEmployeePageView()),
+              fun: () => _navigateToPage(UpdateEmployeePageView(db: db)),
               buttonText: _updateEmployee,
               icon: _icons.iconUpdate,
             ),
             CustomElevatedButton(
-              fun: () => _navigateToPage(const DeleteEmployeePageView()),
+              fun: () => _navigateToPage(DeleteEmployeePageView(db: db)),
               buttonText: _deleteEmployee,
               icon: _icons.iconRemoveCircle,
             ),

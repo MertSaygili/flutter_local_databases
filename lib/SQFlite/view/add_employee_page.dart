@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_local_databases/SQFlite/core/database/database_manager.dart';
 import 'package:flutter_local_databases/SQFlite/widgets/custom_appbar.dart';
 
 class AddEmployeePageView extends StatefulWidget {
-  const AddEmployeePageView({super.key});
+  const AddEmployeePageView({super.key, required this.databaseManager});
+
+  final DatabaseManager databaseManager;
 
   @override
   State<AddEmployeePageView> createState() => _AddEmployeePageViewState();

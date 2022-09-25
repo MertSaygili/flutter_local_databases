@@ -4,21 +4,21 @@ import 'package:flutter_local_databases/SQFlite/widgets/custom_appbar.dart';
 import 'package:flutter_local_databases/SQFlite/widgets/custom_employee_card.dart';
 
 class ShowEmployeesPageView extends StatefulWidget {
-  const ShowEmployeesPageView({super.key});
+  const ShowEmployeesPageView({super.key, required this.db});
+
+  final DatabaseManager db;
 
   @override
   State<ShowEmployeesPageView> createState() => _ShowEmployeesPageViewState();
 }
 
 class _ShowEmployeesPageViewState extends State<ShowEmployeesPageView> {
-  final databaseManager = DatabaseManager();
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: CustomAppbar(),
       body: FutureBuilder(
-        future: databaseManager.getEmployees(),
+        future: widget.db.getEmployees(),
         initialData: const [],
         builder: _builder,
       ),
