@@ -32,7 +32,7 @@ class _CustomTextfieldState extends State<CustomTextfield> {
       padding: PaddingItems().paddingTextField,
       child: TextField(
         onChanged: (value) {
-          _callbackText = '${widget.hintText}.$value';
+          _callbackText = '${widget.labelText}.$value';
           widget.fun(_callbackText);
         },
         textInputAction: widget.inputAction,

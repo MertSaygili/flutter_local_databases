@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_local_databases/constants/constanst.dart';
 
 class CustomCheckbox extends StatefulWidget {
   const CustomCheckbox({super.key, required this.fun});
@@ -22,6 +23,7 @@ class _CustomCheckboxState extends State<CustomCheckbox> {
         });
         _checkboxValue ? widget.fun('true') : widget.fun('false');
       }),
+      activeColor: ColorItems().colorPurple,
     );
   }
 }

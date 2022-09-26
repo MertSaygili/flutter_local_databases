@@ -19,10 +19,22 @@ class CustomDarkTheme {
       appBarTheme: _appbarTheme(),
       textTheme: _textTheme(),
       elevatedButtonTheme: _elevatedButtonTheme(),
-      iconTheme: IconThemeData(
-        color: _colors.colorWhite,
-        size: _fontSizes.iconSizeMedium,
-      ),
+      floatingActionButtonTheme: _floatingActionButtonTheme(),
+      iconTheme: _iconThemeData(),
+    );
+  }
+
+  IconThemeData _iconThemeData() {
+    return IconThemeData(
+      color: _colors.colorWhite,
+      size: _fontSizes.iconSizeMedium,
+    );
+  }
+
+  FloatingActionButtonThemeData _floatingActionButtonTheme() {
+    return FloatingActionButtonThemeData(
+      backgroundColor: _colors.colorPurple,
+      foregroundColor: _colors.colorWhite,
     );
   }
 

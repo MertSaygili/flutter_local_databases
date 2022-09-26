@@ -36,6 +36,7 @@ class PaddingItems {
     vertical: 15,
     horizontal: 15,
   );
+  final EdgeInsets paddingAddEmployeePage = const EdgeInsets.only(bottom: 30);
 }
 
 class ShapeItems {
