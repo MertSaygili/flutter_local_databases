@@ -51,4 +51,8 @@ class IconItems {
   final Icon iconAdd = const Icon(Icons.add);
   final Icon iconUpdate = const Icon(Icons.update);
   final Icon iconRemoveCircle = const Icon(Icons.remove_circle);
+  final Icon iconStarsSharp = const Icon(Icons.stars_sharp);
+  final Icon iconBuild = const Icon(Icons.build);
+  final Icon iconPhone = const Icon(Icons.phone);
+  final Icon iconEmail = const Icon(Icons.email);
 }
