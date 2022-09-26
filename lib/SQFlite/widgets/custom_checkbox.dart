@@ -20,7 +20,7 @@ class _CustomCheckboxState extends State<CustomCheckbox> {
         setState(() {
           _checkboxValue = !_checkboxValue;
         });
-        widget.fun(_checkboxValue);
+        _checkboxValue ? widget.fun('true') : widget.fun('false');
       }),
     );
   }

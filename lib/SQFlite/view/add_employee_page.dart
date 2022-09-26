@@ -34,6 +34,7 @@ class _AddEmployeePageViewState extends State<AddEmployeePageView> {
             inputAction: _inputActionNext,
             inputType: _inputTypeText,
             suffixIcon: IconItems().iconAccountCircle,
+            fun: _saveText,
           ),
           CustomTextfield(
             labelText: 'surname',
@@ -41,6 +42,7 @@ class _AddEmployeePageViewState extends State<AddEmployeePageView> {
             inputAction: _inputActionNext,
             inputType: _inputTypeText,
             suffixIcon: IconItems().iconStarsSharp,
+            fun: _saveText,
           ),
           CustomTextfield(
             labelText: 'department',
@@ -48,6 +50,7 @@ class _AddEmployeePageViewState extends State<AddEmployeePageView> {
             inputAction: _inputActionNext,
             inputType: _inputTypeText,
             suffixIcon: IconItems().iconBuild,
+            fun: _saveText,
           ),
           CustomTextfield(
             labelText: 'phone',
@@ -55,6 +58,7 @@ class _AddEmployeePageViewState extends State<AddEmployeePageView> {
             inputAction: _inputActionNext,
             inputType: _inputTypePhone,
             suffixIcon: IconItems().iconPhone,
+            fun: _saveText,
           ),
           CustomTextfield(
             labelText: 'email',
@@ -62,6 +66,7 @@ class _AddEmployeePageViewState extends State<AddEmployeePageView> {
             inputAction: _inputActionGo,
             inputType: _inputTypeEmail,
             suffixIcon: IconItems().iconEmail,
+            fun: _saveText,
           ),
           Padding(
             padding: PaddingItems().paddingTextField,
@@ -72,7 +77,7 @@ class _AddEmployeePageViewState extends State<AddEmployeePageView> {
                   'Gender(true->woman)',
                   style: Theme.of(context).textTheme.labelMedium,
                 ),
-                CustomCheckbox(fun: saveText),
+                CustomCheckbox(fun: _saveText),
               ],
             ),
           )
@@ -81,8 +86,7 @@ class _AddEmployeePageViewState extends State<AddEmployeePageView> {
     );
   }
 
-  void saveText(String val) {
-    String value = val.split('.')[1];
-    print(value);
+  void _saveText(String val) {
+    print(val);
   }
 }

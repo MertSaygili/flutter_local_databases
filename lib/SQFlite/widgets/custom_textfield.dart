@@ -4,7 +4,7 @@ import 'package:flutter_local_databases/constants/constanst.dart';
 class CustomTextfield extends StatefulWidget {
   const CustomTextfield({
     super.key,
-    this.fun,
+    required this.fun,
     required this.labelText,
     required this.hintText,
     required this.inputAction,
@@ -12,7 +12,7 @@ class CustomTextfield extends StatefulWidget {
     required this.suffixIcon,
   });
 
-  final Function? fun;
+  final Function fun;
   final String labelText;
   final String hintText;
   final TextInputAction inputAction;
@@ -33,11 +33,12 @@ class _CustomTextfieldState extends State<CustomTextfield> {
       child: TextField(
         onChanged: (value) {
           _callbackText = '${widget.hintText}.$value';
-          widget.fun!(_callbackText);
+          widget.fun(_callbackText);
         },
         textInputAction: widget.inputAction,
         keyboardType: widget.inputType,
         autocorrect: true,
+        style: Theme.of(context).textTheme.labelSmall,
         decoration: InputDecoration(
           border: ShapeItems().borderTextfield,
           label: Text(widget.labelText),
