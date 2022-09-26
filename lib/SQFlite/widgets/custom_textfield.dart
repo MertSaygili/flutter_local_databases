@@ -41,7 +41,7 @@ class _CustomTextfieldState extends State<CustomTextfield> {
         style: Theme.of(context).textTheme.labelSmall,
         decoration: InputDecoration(
           border: ShapeItems().borderTextfield,
-          label: Text(widget.labelText),
+          // label: Text(widget.labelText),
           hintText: widget.hintText,
           labelStyle: Theme.of(context).textTheme.labelMedium,
           floatingLabelStyle: Theme.of(context).textTheme.labelLarge,
