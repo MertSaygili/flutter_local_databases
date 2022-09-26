@@ -9,6 +9,7 @@ class CustomTextfield extends StatefulWidget {
     required this.hintText,
     required this.inputAction,
     required this.inputType,
+    required this.suffixIcon,
   });
 
   final Function? fun;
@@ -16,6 +17,7 @@ class CustomTextfield extends StatefulWidget {
   final String hintText;
   final TextInputAction inputAction;
   final TextInputType inputType;
+  final Icon suffixIcon;
 
   @override
   State<CustomTextfield> createState() => _CustomTextfieldState();
@@ -29,7 +31,7 @@ class _CustomTextfieldState extends State<CustomTextfield> {
     return Padding(
       padding: PaddingItems().paddingTextField,
       child: TextField(
-        onSubmitted: (value) {
+        onChanged: (value) {
           _callbackText = '${widget.hintText}.$value';
           widget.fun!(_callbackText);
         },
@@ -44,7 +46,7 @@ class _CustomTextfieldState extends State<CustomTextfield> {
           floatingLabelStyle: Theme.of(context).textTheme.labelLarge,
           hintStyle: Theme.of(context).textTheme.labelSmall,
           isDense: false,
-          suffixIcon: IconItems().iconAccountCircle,
+          suffixIcon: widget.suffixIcon,
         ),
       ),
     );
