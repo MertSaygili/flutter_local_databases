@@ -111,15 +111,14 @@ class DatabaseManager {
   }
 
   // search by name and surname on database
-  Future<List<EmployeeModel>> searchByNameSurname(
-      String name, String surname) async {
+  Future<List<EmployeeModel>> searchByName(String name) async {
     final db = await database;
 
-    List<Map<String, dynamic>> data =
-        await db.query('''SELECT * FROM $_tableName
-      WHERE name=$name AND
-      surname=$surname
-    ''');
+    List<Map<String, dynamic>> data = await db.query(
+      _tableName,
+      where: 'name == ?',
+      whereArgs: [name],
+    );
 
     return List.generate(
       data.length,
