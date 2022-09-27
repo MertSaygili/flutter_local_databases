@@ -41,6 +41,8 @@ class PaddingItems {
     horizontal: 15,
   );
   final EdgeInsets paddingAddEmployeePage = const EdgeInsets.only(bottom: 30);
+  final EdgeInsets paddingZero = EdgeInsets.zero;
+  final EdgeInsets paddingDivider = const EdgeInsets.only(top: 9);
 }
 
 class ShapeItems {
@@ -60,4 +62,5 @@ class IconItems {
   final Icon iconBuild = const Icon(Icons.build);
   final Icon iconPhone = const Icon(Icons.phone);
   final Icon iconEmail = const Icon(Icons.email);
+  final Icon iconClose = const Icon(Icons.close);
 }

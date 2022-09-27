@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_local_databases/SQFlite/core/model/employee_model.dart';
+import 'package:flutter_local_databases/SQFlite/widgets/custom_iconbutton.dart';
 import 'package:flutter_local_databases/constants/constanst.dart';
 
 class CustomEmployeeCard extends StatefulWidget {
@@ -13,7 +14,7 @@ class CustomEmployeeCard extends StatefulWidget {
 
 class _CustomEmployeeCardState extends State<CustomEmployeeCard> {
   final double _elevation = 15;
-  final double _sizedBoxHeight = 200;
+  final double _sizedBoxHeight = 230;
   final int _topPadding = 7;
 
   @override
@@ -31,6 +32,15 @@ class _CustomEmployeeCardState extends State<CustomEmployeeCard> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
+                Expanded(
+                  flex: 1,
+                  child: Stack(
+                    children: [
+                      _customIcon(),
+                      _customDivider(context),
+                    ],
+                  ),
+                ),
                 _RowImageText(data: widget.employeeModel, function: _textRow),
                 _textRow(
                   widget.employeeModel.phoneNumber,
@@ -45,6 +55,16 @@ class _CustomEmployeeCardState extends State<CustomEmployeeCard> {
     );
   }
 
+  Align _customIcon() {
+    return Align(
+      alignment: Alignment.centerRight,
+      child: CustomIconButton(
+        fun: null,
+        icon: IconItems().iconClose,
+      ),
+    );
+  }
+
   Padding _textRow(String text, int top) {
     return Padding(
       padding: EdgeInsets.only(top: top.toDouble()),
@@ -52,6 +72,18 @@ class _CustomEmployeeCardState extends State<CustomEmployeeCard> {
         text,
         style: Theme.of(context).textTheme.headlineMedium,
         overflow: TextOverflow.visible,
+      ),
+    );
+  }
+
+  Padding _customDivider(BuildContext context) {
+    return Padding(
+      padding: PaddingItems().paddingDivider,
+      child: Divider(
+        indent: MediaQuery.of(context).size.width / 30,
+        endIndent: MediaQuery.of(context).size.width / 6,
+        color: ColorItems().colorWhite,
+        thickness: 1,
       ),
     );
   }
@@ -68,7 +100,7 @@ class _RowImageText extends StatelessWidget {
   final String _threeCharacterSpace = '   ';
   final double _imageSize = 100;
   final int _topPadding = 7;
-  final int _flex = 1;
+  final int _flex = 4;
 
   @override
   Widget build(BuildContext context) {
