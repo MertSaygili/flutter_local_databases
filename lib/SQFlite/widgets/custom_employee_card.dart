@@ -13,7 +13,7 @@ class CustomEmployeeCard extends StatefulWidget {
 
 class _CustomEmployeeCardState extends State<CustomEmployeeCard> {
   final double _elevation = 15;
-  final double _sizedBoxHeight = 180;
+  final double _sizedBoxHeight = 200;
   final int _topPadding = 7;
 
   @override
@@ -33,9 +33,10 @@ class _CustomEmployeeCardState extends State<CustomEmployeeCard> {
               children: [
                 _RowImageText(data: widget.employeeModel, function: _textRow),
                 _textRow(
-                  '${widget.employeeModel.phoneNumber} - ${widget.employeeModel.eMail}',
+                  widget.employeeModel.phoneNumber,
                   _topPadding,
                 ),
+                _textRow(widget.employeeModel.eMail, _topPadding)
               ],
             ),
           ),
@@ -50,6 +51,7 @@ class _CustomEmployeeCardState extends State<CustomEmployeeCard> {
       child: Text(
         text,
         style: Theme.of(context).textTheme.headlineMedium,
+        overflow: TextOverflow.visible,
       ),
     );
   }

@@ -43,7 +43,7 @@ class DatabaseManager {
         $_surname VARCHAR(30),
         $_department VARCHAR(30),
         $_phoneNumber VARCHAR(11),
-        $_eMail VARCHAR(25),
+        $_eMail TEXT,
         $_gender INTEGER,
         $_entryYear TEXT)
     ''');

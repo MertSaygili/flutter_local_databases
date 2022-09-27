@@ -135,7 +135,9 @@ class _AddEmployeePageViewState extends State<AddEmployeePageView> {
       gender: _tempValues.gender,
       entryYear: DateTime.now(),
     );
-    await widget.db.insert(employeeModel);
+
+    print(employeeModel.eMail);
+    // await widget.db.insert(employeeModel);
 
     // ignore: use_build_context_synchronously
     Navigator.of(context).pop();
