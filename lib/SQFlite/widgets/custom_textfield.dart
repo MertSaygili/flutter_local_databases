@@ -35,9 +35,11 @@ class _CustomTextfieldState extends State<CustomTextfield> {
           _callbackText = '${widget.labelText}.$value';
           widget.fun(_callbackText);
         },
+        cursorColor: ColorItems().colorWhite,
         textInputAction: widget.inputAction,
         keyboardType: widget.inputType,
         autocorrect: true,
+        keyboardAppearance: Brightness.dark,
         style: Theme.of(context).textTheme.labelSmall,
         decoration: InputDecoration(
           border: ShapeItems().borderTextfield,

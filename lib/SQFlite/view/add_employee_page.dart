@@ -32,55 +32,45 @@ class _AddEmployeePageViewState extends State<AddEmployeePageView> {
         padding: PaddingItems().paddingAddEmployeePage,
         child: Column(
           children: [
-            Expanded(
-              child: CustomTextfield(
-                labelText: 'name',
-                hintText: 'employee name',
-                inputAction: _inputActionNext,
-                inputType: _inputTypeText,
-                suffixIcon: IconItems().iconAccountCircle,
-                fun: _saveText,
-              ),
+            CustomTextfield(
+              labelText: 'name',
+              hintText: 'employee name',
+              inputAction: _inputActionNext,
+              inputType: _inputTypeText,
+              suffixIcon: IconItems().iconAccountCircle,
+              fun: _saveText,
             ),
-            Expanded(
-              child: CustomTextfield(
-                labelText: 'surname',
-                hintText: 'employee surname',
-                inputAction: _inputActionNext,
-                inputType: _inputTypeText,
-                suffixIcon: IconItems().iconStarsSharp,
-                fun: _saveText,
-              ),
+            CustomTextfield(
+              labelText: 'surname',
+              hintText: 'employee surname',
+              inputAction: _inputActionNext,
+              inputType: _inputTypeText,
+              suffixIcon: IconItems().iconStarsSharp,
+              fun: _saveText,
             ),
-            Expanded(
-              child: CustomTextfield(
-                labelText: 'department',
-                hintText: 'employee department',
-                inputAction: _inputActionNext,
-                inputType: _inputTypeText,
-                suffixIcon: IconItems().iconBuild,
-                fun: _saveText,
-              ),
+            CustomTextfield(
+              labelText: 'department',
+              hintText: 'employee department',
+              inputAction: _inputActionNext,
+              inputType: _inputTypeText,
+              suffixIcon: IconItems().iconBuild,
+              fun: _saveText,
             ),
-            Expanded(
-              child: CustomTextfield(
-                labelText: 'phone',
-                hintText: 'employee phone',
-                inputAction: _inputActionNext,
-                inputType: _inputTypePhone,
-                suffixIcon: IconItems().iconPhone,
-                fun: _saveText,
-              ),
+            CustomTextfield(
+              labelText: 'phone',
+              hintText: 'employee phone',
+              inputAction: _inputActionNext,
+              inputType: _inputTypePhone,
+              suffixIcon: IconItems().iconPhone,
+              fun: _saveText,
             ),
-            Expanded(
-              child: CustomTextfield(
-                labelText: 'email',
-                hintText: 'employee email',
-                inputAction: _inputActionGo,
-                inputType: _inputTypeEmail,
-                suffixIcon: IconItems().iconEmail,
-                fun: _saveText,
-              ),
+            CustomTextfield(
+              labelText: 'email',
+              hintText: 'employee email',
+              inputAction: _inputActionGo,
+              inputType: _inputTypeEmail,
+              suffixIcon: IconItems().iconEmail,
+              fun: _saveText,
             ),
             _checkBoxExpanded(context),
             CustomFloatActionButton(fun: _addToDb, icon: IconItems().iconAdd),
@@ -90,20 +80,18 @@ class _AddEmployeePageViewState extends State<AddEmployeePageView> {
     );
   }
 
-  Expanded _checkBoxExpanded(BuildContext context) {
-    return Expanded(
-      child: Padding(
-        padding: PaddingItems().paddingTextField,
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Text(
-              'Gender(true->woman)',
-              style: Theme.of(context).textTheme.labelMedium,
-            ),
-            CustomCheckbox(fun: _saveText),
-          ],
-        ),
+  Padding _checkBoxExpanded(BuildContext context) {
+    return Padding(
+      padding: PaddingItems().paddingCheckbox,
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Text(
+            'Gender(true->woman)',
+            style: Theme.of(context).textTheme.labelMedium,
+          ),
+          CustomCheckbox(fun: _saveText),
+        ],
       ),
     );
   }
@@ -160,5 +148,5 @@ class _TempEmployeeModelValues {
   late String department;
   late String phoneNumber;
   late String email;
-  late bool gender;
+  bool gender = false;
 }

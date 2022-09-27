@@ -32,6 +32,10 @@ class PaddingItems {
     vertical: 10,
     horizontal: 25,
   );
+  final EdgeInsets paddingCheckbox = const EdgeInsets.symmetric(
+    vertical: 5,
+    horizontal: 25,
+  );
   final EdgeInsets paddingInsideCard = const EdgeInsets.symmetric(
     vertical: 15,
     horizontal: 15,
