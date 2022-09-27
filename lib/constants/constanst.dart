@@ -63,4 +63,5 @@ class IconItems {
   final Icon iconPhone = const Icon(Icons.phone);
   final Icon iconEmail = const Icon(Icons.email);
   final Icon iconClose = const Icon(Icons.close);
+  final Icon iconSearch = const Icon(Icons.search);
 }

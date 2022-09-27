@@ -110,6 +110,32 @@ class DatabaseManager {
     );
   }
 
+  // search by name and surname on database
+  Future<List<EmployeeModel>> searchByNameSurname(
+      String name, String surname) async {
+    final db = await database;
+
+    List<Map<String, dynamic>> data =
+        await db.query('''SELECT * FROM $_tableName
+      WHERE name=$name AND
+      surname=$surname
+    ''');
+
+    return List.generate(
+      data.length,
+      (index) => EmployeeModel(
+        id: data[index]['id'],
+        name: data[index]['name'],
+        surname: data[index]['surname'],
+        department: data[index]['department'],
+        phoneNumber: data[index]['phoneNumber'],
+        eMail: data[index]['eMail'],
+        gender: data[index]['gender'] == 1 ? true : false,
+        entryYear: DateTime.parse(data[index]['entryYear']),
+      ),
+    );
+  }
+
   // closes database
   void closeDatabase() {
     _database!.close();

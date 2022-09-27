@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_local_databases/SQFlite/core/model/employee_model.dart';
 import 'package:flutter_local_databases/SQFlite/widgets/custom_iconbutton.dart';
@@ -55,11 +56,13 @@ class _CustomEmployeeCardState extends State<CustomEmployeeCard> {
     );
   }
 
+  void _deleteEmployee() async {}
+
   Align _customIcon() {
     return Align(
       alignment: Alignment.centerRight,
       child: CustomIconButton(
-        fun: null,
+        fun: _deleteEmployee,
         icon: IconItems().iconClose,
       ),
     );
@@ -83,7 +86,7 @@ class _CustomEmployeeCardState extends State<CustomEmployeeCard> {
         indent: MediaQuery.of(context).size.width / 30,
         endIndent: MediaQuery.of(context).size.width / 6,
         color: ColorItems().colorWhite,
-        thickness: 1,
+        thickness: 0.5,
       ),
     );
   }
