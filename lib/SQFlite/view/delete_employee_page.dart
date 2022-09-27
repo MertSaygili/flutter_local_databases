@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_local_databases/SQFlite/core/database/database_manager.dart';
 import 'package:flutter_local_databases/SQFlite/core/model/employee_model.dart';
 import 'package:flutter_local_databases/SQFlite/widgets/custom_appbar.dart';
+import 'package:flutter_local_databases/SQFlite/widgets/custom_employee_card.dart';
 import 'package:flutter_local_databases/SQFlite/widgets/custom_textfield.dart';
 import 'package:flutter_local_databases/constants/constanst.dart';
 
@@ -23,8 +24,9 @@ class _DeleteEmployeePageViewState extends State<DeleteEmployeePageView> {
   final TextInputType _inputType = TextInputType.text;
   final Icon _suffixIcon = IconItems().iconSearch;
 
+  late final List<EmployeeModel> _employeeModels;
+
   late String _name;
-  late EmployeeModel _employeeModel;
 
   bool _isCardAlive = false;
 
@@ -34,15 +36,30 @@ class _DeleteEmployeePageViewState extends State<DeleteEmployeePageView> {
       appBar: CustomAppbar(),
       body: Column(
         children: [
-          CustomTextfield(
-            fun: _takeEmployeeName,
-            labelText: _labelText,
-            hintText: _hintText,
-            inputAction: _inputAction,
-            inputType: _inputType,
-            suffixIcon: _suffixIcon,
+          Expanded(
+            flex: 2,
+            child: CustomTextfield(
+              fun: _takeEmployeeName,
+              labelText: _labelText,
+              hintText: _hintText,
+              inputAction: _inputAction,
+              inputType: _inputType,
+              suffixIcon: _suffixIcon,
+            ),
           ),
-          _isCardAlive ? const Text('sad') : const SizedBox(),
+          _isCardAlive
+              ? Expanded(
+                  flex: 5,
+                  child: ListView.builder(
+                    itemCount: _employeeModels.length,
+                    itemBuilder: ((context, index) {
+                      return CustomEmployeeCard(
+                        employeeModel: _employeeModels[index],
+                      );
+                    }),
+                  ),
+                )
+              : const SizedBox(),
         ],
       ),
       floatingActionButton: CustomFloatActionButton(
@@ -52,15 +69,12 @@ class _DeleteEmployeePageViewState extends State<DeleteEmployeePageView> {
     );
   }
 
-  void _takeEmployeeName(String name) {
-    setState(() => _name = name.split('.')[1]);
-  }
+  void _takeEmployeeName(String name) =>
+      setState(() => _name = name.split('.')[1]);
 
   void _takeEmployees() async {
-    print(_name);
-    setState(() => _isCardAlive = true);
     List<EmployeeModel> data = await widget.db.searchByName(_name);
-
-    print(data);
+    _employeeModels = data;
+    setState(() => _isCardAlive = true);
   }
 }
