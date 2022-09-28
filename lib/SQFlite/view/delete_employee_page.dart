@@ -35,6 +35,7 @@ class _DeleteEmployeePageViewState extends State<DeleteEmployeePageView> {
     return Scaffold(
       appBar: CustomAppbar(),
       body: Column(
+        mainAxisSize: MainAxisSize.max,
         children: [
           Expanded(
             flex: 2,

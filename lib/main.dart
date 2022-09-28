@@ -11,6 +11,7 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    FloatingActionButtonLocation.centerDocked;
     return MaterialApp(
       title: 'Flutter Local Databases',
       theme: CustomDarkTheme().theme,

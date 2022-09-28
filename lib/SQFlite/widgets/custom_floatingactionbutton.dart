@@ -22,7 +22,7 @@ class _CustomFloatActionButtonState extends State<CustomFloatActionButton> {
     return Padding(
       padding: PaddingItems().paddingTextField,
       child: Align(
-        alignment: Alignment.centerRight,
+        alignment: Alignment.bottomRight,
         child: FloatingActionButton(
           onPressed: () => widget.fun(),
           child: widget.icon,
