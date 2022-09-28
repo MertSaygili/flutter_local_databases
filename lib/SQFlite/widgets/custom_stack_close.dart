@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
 import '../../constants/constanst.dart';
-import 'custom_remove__iconbutton.dart';
 
 class CustomStackClose extends StatefulWidget {
   const CustomStackClose({super.key, required this.fun});
@@ -27,7 +26,7 @@ class _CustomStackCloseState extends State<CustomStackClose> {
     return Align(
       alignment: Alignment.centerRight,
       child: IconButton(
-        onPressed: () => widget.fun(),
+        onPressed: () {},
         icon: IconItems().iconClose,
       ),
     );

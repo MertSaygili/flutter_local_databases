@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_local_databases/SQFlite/widgets/custom_stack_close.dart';
 import 'package:flutter_local_databases/constants/constanst.dart';
 
-class CustomRemoveIconButton extends StatefulWidget {
-  const CustomRemoveIconButton({
+class CustomIconButton extends StatefulWidget {
+  const CustomIconButton({
     super.key,
     required this.fun,
     required this.icon,
@@ -13,52 +12,17 @@ class CustomRemoveIconButton extends StatefulWidget {
   final Icon icon;
 
   @override
-  State<CustomRemoveIconButton> createState() => _CustomRemoveIconButtonState();
+  State<CustomIconButton> createState() => _CustomIconButtonState();
 }
 
-class _CustomRemoveIconButtonState extends State<CustomRemoveIconButton> {
+class _CustomIconButtonState extends State<CustomIconButton> {
   @override
   Widget build(BuildContext context) {
     return IconButton(
-      onPressed: () async {
-        final result = await ShowDialogs()._showAlertDialog(
-          context,
-          _removeItem,
-        );
-
-        if (result) {
-          widget.fun();
-        }
-      },
+      onPressed: () {},
       icon: widget.icon,
       padding: PaddingItems().paddingZero,
       color: ColorItems().colorWhite,
     );
-  }
-
-  void _removeItem() => Navigator.of(context).pop<bool>(true);
-}
-
-class ShowDialogs {
-  Future<bool> _showAlertDialog(BuildContext context, Function funTrue) async {
-    final result = await showDialog(
-        // barrierDismissible: false,
-        context: context,
-        builder: (context) {
-          return AlertDialog(
-            title: CustomStackClose(fun: () {
-              Navigator.of(context).pop<bool>(false);
-            }),
-            content: const Text('Are you sure to delete this employee?'),
-            actions: [
-              IconButton(
-                onPressed: () => funTrue(),
-                icon: IconItems().iconRemoveCircle,
-              ),
-            ],
-          );
-        });
-
-    return result;
   }
 }
