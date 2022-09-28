@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_local_databases/SQFlite/core/database/database_manager.dart';
 import 'package:flutter_local_databases/SQFlite/core/model/employee_model.dart';
-import 'package:flutter_local_databases/SQFlite/widgets/custom_iconbutton.dart';
+import 'package:flutter_local_databases/SQFlite/widgets/custom_remove__iconbutton.dart';
+import 'package:flutter_local_databases/SQFlite/widgets/custom_stack_close.dart';
 import 'package:flutter_local_databases/constants/constanst.dart';
 
 class CustomEmployeeCard extends StatefulWidget {
@@ -40,12 +41,7 @@ class _CustomEmployeeCardState extends State<CustomEmployeeCard> {
               children: [
                 Expanded(
                   flex: 1,
-                  child: Stack(
-                    children: [
-                      _customIcon(),
-                      _customDivider(context),
-                    ],
-                  ),
+                  child: CustomStackClose(fun: _deleteEmployee),
                 ),
                 _RowImageText(data: widget.employeeModel, function: _textRow),
                 _textRow(
@@ -63,17 +59,6 @@ class _CustomEmployeeCardState extends State<CustomEmployeeCard> {
 
   void _deleteEmployee() async {
     await widget.db.delete(widget.employeeModel.id ?? 0);
-    setState(() {});
-  }
-
-  Align _customIcon() {
-    return Align(
-      alignment: Alignment.centerRight,
-      child: CustomIconButton(
-        fun: _deleteEmployee,
-        icon: IconItems().iconClose,
-      ),
-    );
   }
 
   Padding _textRow(String text, int top) {
@@ -83,18 +68,6 @@ class _CustomEmployeeCardState extends State<CustomEmployeeCard> {
         text,
         style: Theme.of(context).textTheme.headlineMedium,
         overflow: TextOverflow.visible,
-      ),
-    );
-  }
-
-  Padding _customDivider(BuildContext context) {
-    return Padding(
-      padding: PaddingItems().paddingDivider,
-      child: Divider(
-        indent: MediaQuery.of(context).size.width / 30,
-        endIndent: MediaQuery.of(context).size.width / 6,
-        color: ColorItems().colorWhite,
-        thickness: 0.5,
       ),
     );
   }
