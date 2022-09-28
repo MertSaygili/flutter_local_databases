@@ -1,12 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_local_databases/SQFlite/core/database/database_manager.dart';
 import 'package:flutter_local_databases/SQFlite/core/model/employee_model.dart';
 import 'package:flutter_local_databases/SQFlite/widgets/custom_iconbutton.dart';
 import 'package:flutter_local_databases/constants/constanst.dart';
 
 class CustomEmployeeCard extends StatefulWidget {
-  const CustomEmployeeCard({super.key, required this.employeeModel});
+  const CustomEmployeeCard({
+    super.key,
+    required this.employeeModel,
+    required this.db,
+  });
 
   final EmployeeModel employeeModel;
+  final DatabaseManager db;
 
   @override
   State<CustomEmployeeCard> createState() => _CustomEmployeeCardState();
@@ -55,7 +61,10 @@ class _CustomEmployeeCardState extends State<CustomEmployeeCard> {
     );
   }
 
-  void _deleteEmployee() async {}
+  void _deleteEmployee() async {
+    await widget.db.delete(widget.employeeModel.id ?? 0);
+    setState(() {});
+  }
 
   Align _customIcon() {
     return Align(

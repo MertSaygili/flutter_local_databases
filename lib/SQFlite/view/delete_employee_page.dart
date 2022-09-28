@@ -54,6 +54,7 @@ class _DeleteEmployeePageViewState extends State<DeleteEmployeePageView> {
                     itemCount: _employeeModels.length,
                     itemBuilder: ((context, index) {
                       return CustomEmployeeCard(
+                        db: widget.db,
                         employeeModel: _employeeModels[index],
                       );
                     }),

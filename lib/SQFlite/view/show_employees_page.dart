@@ -34,7 +34,10 @@ class _ShowEmployeesPageViewState extends State<ShowEmployeesPageView> {
         : ListView.builder(
             itemCount: dataLength,
             itemBuilder: (context, index) {
-              return CustomEmployeeCard(employeeModel: data[index]);
+              return CustomEmployeeCard(
+                db: widget.db,
+                employeeModel: data[index],
+              );
             });
   }
 }
