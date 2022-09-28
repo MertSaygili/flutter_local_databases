@@ -14,6 +14,11 @@ class ShowEmployeesPageView extends StatefulWidget {
 
 class _ShowEmployeesPageViewState extends State<ShowEmployeesPageView> {
   @override
+  void initState() {
+    super.initState();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: CustomAppbar(),

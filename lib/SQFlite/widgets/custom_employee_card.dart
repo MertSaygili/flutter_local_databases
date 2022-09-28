@@ -1,6 +1,9 @@
+// ignore_for_file: use_build_context_synchronously
+
 import 'package:flutter/material.dart';
 import 'package:flutter_local_databases/SQFlite/core/database/database_manager.dart';
 import 'package:flutter_local_databases/SQFlite/core/model/employee_model.dart';
+import 'package:flutter_local_databases/SQFlite/view/show_employees_page.dart';
 import 'package:flutter_local_databases/SQFlite/widgets/custom_stack_close.dart';
 import 'package:flutter_local_databases/constants/constanst.dart';
 
@@ -58,6 +61,14 @@ class _CustomEmployeeCardState extends State<CustomEmployeeCard> {
 
   void _deleteEmployee() async {
     await widget.db.delete(widget.employeeModel.id ?? 0);
+
+    // to refreshing page
+    Navigator.of(context).pop();
+    Navigator.of(context).push(
+      MaterialPageRoute(builder: (context) {
+        return ShowEmployeesPageView(db: widget.db);
+      }),
+    );
   }
 
   Padding _textRow(String text, int top) {
