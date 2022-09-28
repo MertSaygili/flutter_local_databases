@@ -19,7 +19,7 @@ class _CustomIconButtonState extends State<CustomIconButton> {
   @override
   Widget build(BuildContext context) {
     return IconButton(
-      onPressed: () {},
+      onPressed: () => widget.fun(),
       icon: widget.icon,
       padding: PaddingItems().paddingZero,
       color: ColorItems().colorWhite,
