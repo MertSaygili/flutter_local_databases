@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_local_databases/SQFlite/widgets/custom_elevatedbutton.dart';
 import 'package:flutter_local_databases/SQFlite/widgets/custom_icon_button.dart';
 
 import '../../constants/constanst.dart';
@@ -33,7 +32,7 @@ class _CustomStackCloseState extends State<CustomStackClose> {
               context: context,
               barrierDismissible: true,
               builder: (context) {
-                return const _customAlertDialog();
+                return const _CustomAlertDialog();
               });
           if (result) {
             widget.fun();
@@ -57,8 +56,8 @@ class _CustomStackCloseState extends State<CustomStackClose> {
   }
 }
 
-class _customAlertDialog extends StatelessWidget {
-  const _customAlertDialog({
+class _CustomAlertDialog extends StatelessWidget {
+  const _CustomAlertDialog({
     Key? key,
   }) : super(key: key);
 

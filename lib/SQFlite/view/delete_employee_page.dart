@@ -4,7 +4,6 @@ import 'package:flutter_local_databases/SQFlite/core/model/employee_model.dart';
 import 'package:flutter_local_databases/SQFlite/widgets/custom_appbar.dart';
 import 'package:flutter_local_databases/SQFlite/widgets/custom_employee_card.dart';
 import 'package:flutter_local_databases/SQFlite/widgets/custom_search_textfield.dart';
-import 'package:flutter_local_databases/SQFlite/widgets/custom_textfield.dart';
 import 'package:flutter_local_databases/constants/constanst.dart';
 
 import '../widgets/custom_floatingactionbutton.dart';
@@ -19,7 +18,8 @@ class DeleteEmployeePageView extends StatefulWidget {
 }
 
 class _DeleteEmployeePageViewState extends State<DeleteEmployeePageView> {
-  late final List<EmployeeModel> _employeeModels;
+  late List<EmployeeModel> _employeeModels;
+  final int _flex = 3;
 
   late String _name;
 
@@ -32,10 +32,10 @@ class _DeleteEmployeePageViewState extends State<DeleteEmployeePageView> {
       body: Column(
         mainAxisSize: MainAxisSize.max,
         children: [
-          CustomSearchTextField(fun: _takeEmployeeName),
+          CustomSearchTextField(fun: _takeEmployeeName, text: 'Isim gir'),
           _isCardAlive
               ? Expanded(
-                  flex: 5,
+                  flex: _flex,
                   child: ListView.builder(
                     itemCount: _employeeModels.length,
                     itemBuilder: ((context, index) {
