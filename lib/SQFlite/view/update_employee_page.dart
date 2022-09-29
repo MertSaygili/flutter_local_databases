@@ -29,7 +29,7 @@ class _UpdateEmployeePageViewState extends State<UpdateEmployeePageView> {
         ],
       ),
       floatingActionButton: CustomFloatActionButton(
-        fun: () {},
+        fun: _takeEmployeeInformation,
         icon: IconItems().iconSearch,
       ),
     );
@@ -37,4 +37,6 @@ class _UpdateEmployeePageViewState extends State<UpdateEmployeePageView> {
 
   void _takeEmployeeName(String name) =>
       setState(() => _name = name.split('.')[1]);
+
+  void _takeEmployeeInformation(String id) {}
 }
