@@ -3,6 +3,7 @@ import 'package:flutter_local_databases/SQFlite/core/database/database_manager.d
 import 'package:flutter_local_databases/SQFlite/core/model/employee_model.dart';
 import 'package:flutter_local_databases/SQFlite/widgets/custom_appbar.dart';
 import 'package:flutter_local_databases/SQFlite/widgets/custom_employee_card.dart';
+import 'package:flutter_local_databases/SQFlite/widgets/custom_search_textfield.dart';
 import 'package:flutter_local_databases/SQFlite/widgets/custom_textfield.dart';
 import 'package:flutter_local_databases/constants/constanst.dart';
 
@@ -18,12 +19,6 @@ class DeleteEmployeePageView extends StatefulWidget {
 }
 
 class _DeleteEmployeePageViewState extends State<DeleteEmployeePageView> {
-  final String _labelText = 'Calisan ara';
-  final String _hintText = 'Calisan adi gir';
-  final TextInputAction _inputAction = TextInputAction.done;
-  final TextInputType _inputType = TextInputType.text;
-  final Icon _suffixIcon = IconItems().iconSearch;
-
   late final List<EmployeeModel> _employeeModels;
 
   late String _name;
@@ -37,17 +32,7 @@ class _DeleteEmployeePageViewState extends State<DeleteEmployeePageView> {
       body: Column(
         mainAxisSize: MainAxisSize.max,
         children: [
-          Expanded(
-            flex: 2,
-            child: CustomTextfield(
-              fun: _takeEmployeeName,
-              labelText: _labelText,
-              hintText: _hintText,
-              inputAction: _inputAction,
-              inputType: _inputType,
-              suffixIcon: _suffixIcon,
-            ),
-          ),
+          CustomSearchTextField(fun: _takeEmployeeName),
           _isCardAlive
               ? Expanded(
                   flex: 5,
