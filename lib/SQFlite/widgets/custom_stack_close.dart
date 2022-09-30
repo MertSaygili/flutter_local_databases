@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_local_databases/SQFlite/widgets/approve_dialog.dart';
 import '../../constants/constanst.dart';
 import 'custom_alert_dialog.dart';
 
@@ -34,7 +35,15 @@ class _CustomStackCloseState extends State<CustomStackClose> {
                 return const CustomAlertDialog();
               });
           if (result) {
+            String del = 'Employee deleted';
             widget.fun();
+
+            await showDialog(
+              context: context,
+              builder: ((context) {
+                return CustomApproveDialog(text: del);
+              }),
+            );
           }
         },
         icon: IconItems().iconClose,

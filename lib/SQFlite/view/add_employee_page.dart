@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_local_databases/SQFlite/core/database/database_manager.dart';
 import 'package:flutter_local_databases/SQFlite/core/model/employee_model.dart';
+import 'package:flutter_local_databases/SQFlite/widgets/approve_dialog.dart';
 import 'package:flutter_local_databases/SQFlite/widgets/custom_appbar.dart';
 import 'package:flutter_local_databases/SQFlite/widgets/custom_checkbox.dart';
 import 'package:flutter_local_databases/SQFlite/widgets/custom_floatingactionbutton.dart';
@@ -126,6 +127,8 @@ class _AddEmployeePageViewState extends State<AddEmployeePageView> {
   }
 
   void _addToDb() async {
+    String empAdded = 'Employee added';
+
     EmployeeModel employeeModel = EmployeeModel(
       name: _tempValues.userName,
       surname: _tempValues.userSurname,
@@ -137,6 +140,14 @@ class _AddEmployeePageViewState extends State<AddEmployeePageView> {
     );
 
     await widget.db.insert(employeeModel);
+
+    await showDialog(
+      barrierDismissible: false,
+      context: context,
+      builder: ((context) {
+        return CustomApproveDialog(text: empAdded);
+      }),
+    );
 
     // ignore: use_build_context_synchronously
     Navigator.of(context).pop();

@@ -67,4 +67,5 @@ class IconItems {
   final Icon iconEmail = const Icon(Icons.email);
   final Icon iconClose = const Icon(Icons.close);
   final Icon iconSearch = const Icon(Icons.search);
+  final Icon iconDone = const Icon(Icons.done);
 }
