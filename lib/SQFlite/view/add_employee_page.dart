@@ -102,7 +102,7 @@ class _AddEmployeePageViewState extends State<AddEmployeePageView> {
     );
   }
 
-  void _saveText(String val) {
+  void _saveText(String val, String hintText) {
     if (val.compareTo('true') == 0) {
       _tempValues.gender = true;
     } else if (val.compareTo('false') == 0) {

@@ -11,14 +11,6 @@ class CustomApproveDialog extends StatelessWidget {
   Widget build(BuildContext context) {
     return AlertDialog(
       contentPadding: PaddingItems().paddingDialogBox,
-      titlePadding: PaddingItems().paddingZero,
-      title: Align(
-        alignment: Alignment.topRight,
-        child: CustomIconButton(
-          fun: () => Navigator.of(context).pop(),
-          icon: IconItems().iconClose,
-        ),
-      ),
       content: Text(text),
       actions: [
         CustomIconButton(

@@ -40,7 +40,7 @@ class _UpdateEmployeePageViewState extends State<UpdateEmployeePageView> {
     );
   }
 
-  void _takeEmployeeName(String id) {
+  void _takeEmployeeName(String id, String hintText) {
     int searchId = int.tryParse(id.split('.')[1]) ?? 1;
     // show alert if searchId is null
 

@@ -3,6 +3,7 @@ import 'package:flutter_local_databases/SQFlite/core/database/database_manager.d
 import 'package:flutter_local_databases/SQFlite/core/model/employee_model.dart';
 import 'package:flutter_local_databases/SQFlite/view/add_employee_page.dart';
 import 'package:flutter_local_databases/SQFlite/widgets/custom_appbar.dart';
+import 'package:flutter_local_databases/SQFlite/widgets/custom_elevatedbutton.dart';
 
 import '../../constants/constanst.dart';
 import '../widgets/approve_dialog.dart';
@@ -29,7 +30,6 @@ class _UpdateEmployeeInformationsState
   final TextInputType _inputTypeText = TextInputType.text;
   final TextInputType _inputTypePhone = TextInputType.phone;
   final TextInputType _inputTypeEmail = TextInputType.emailAddress;
-  final TempEmployeeModelValues _tempValues = TempEmployeeModelValues();
 
   @override
   Widget build(BuildContext context) {
@@ -84,7 +84,11 @@ class _UpdateEmployeeInformationsState
             readOnly: false,
           ),
           _checkBoxExpanded(context),
-          CustomFloatActionButton(fun: _addToDb, icon: IconItems().iconAdd),
+          CustomElevatedButton(
+            fun: _addToDb,
+            buttonText: 'Update',
+            icon: IconItems().iconUpdate,
+          ),
         ],
       ),
     );
@@ -106,49 +110,29 @@ class _UpdateEmployeeInformationsState
     );
   }
 
-  void _saveText(String val) {
-    if (val.compareTo('true') == 0) {
-      _tempValues.gender = true;
-    } else if (val.compareTo('false') == 0) {
-      _tempValues.gender = false;
-    } else {
-      String address = val.split('.')[0];
-      String splitVal = val.split('.')[1];
+  void _saveText(String val, String hintText) {
+    String address = val.split('.')[0];
+    String splitVal = val.split('.')[1];
 
-      switch (address) {
-        case 'name':
-          _tempValues.userName = splitVal;
-          break;
-        case 'surname':
-          _tempValues.userSurname = splitVal;
-          break;
-        case 'department':
-          _tempValues.department = splitVal;
-          break;
-        case 'phone':
-          _tempValues.phoneNumber = splitVal;
-          break;
-        case 'email':
-          _tempValues.email = splitVal;
-          break;
-      }
+    switch (address) {
+      case 'department':
+        widget.employeeModel.department = splitVal;
+        break;
+      case 'phone':
+        widget.employeeModel.department = splitVal;
+
+        break;
+      case 'email':
+        widget.employeeModel.department = splitVal;
+
+        break;
     }
   }
 
   void _addToDb() async {
-    String empAdded = 'Employee added';
+    String empAdded = 'Employee updated';
 
-    EmployeeModel employeeModel = EmployeeModel(
-      name: _tempValues.userName,
-      surname: _tempValues.userSurname,
-      department: _tempValues.department,
-      phoneNumber: _tempValues.phoneNumber,
-      eMail: _tempValues.email,
-      gender: _tempValues.gender,
-      entryYear: DateTime.now(),
-    );
-
-    await widget.db.insert(employeeModel);
+    await widget.db.update(widget.employeeModel, widget.employeeModel.id ?? 0);
 
     await showDialog(
       barrierDismissible: false,
@@ -162,3 +146,4 @@ class _UpdateEmployeeInformationsState
     Navigator.of(context).pop();
   }
 }
+// TODO: BIRAZ DAHA KOD TEMIZLENEBILIR, DUSUN BUNU ZOR GOZUKUYOR AMA YAPILABILIR
