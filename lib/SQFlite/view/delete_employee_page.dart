@@ -56,7 +56,7 @@ class _DeleteEmployeePageViewState extends State<DeleteEmployeePageView> {
     );
   }
 
-  void _takeEmployeeName(String name) =>
+  void _takeEmployeeName(String name, String hintText) =>
       setState(() => _name = name.split('.')[1]);
 
   void _takeEmployees() async {
