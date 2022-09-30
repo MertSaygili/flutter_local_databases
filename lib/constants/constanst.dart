@@ -42,9 +42,10 @@ class PaddingItems {
   );
   final EdgeInsets paddingAddEmployeePage = const EdgeInsets.only(bottom: 30);
   final EdgeInsets paddingZero = EdgeInsets.zero;
-  final EdgeInsets paddingDivider = const EdgeInsets.only(top: 9);
-  final EdgeInsets paddingDialogBox =
-      const EdgeInsets.symmetric(horizontal: 20);
+  final EdgeInsets paddingDivider = const EdgeInsets.only(top: 15);
+  final EdgeInsets paddingDialogBox = const EdgeInsets.symmetric(
+    horizontal: 20,
+  );
 }
 
 class ShapeItems {

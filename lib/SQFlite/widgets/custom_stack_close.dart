@@ -48,9 +48,9 @@ class _CustomStackCloseState extends State<CustomStackClose> {
       padding: PaddingItems().paddingDivider,
       child: Divider(
         indent: MediaQuery.of(context).size.width / 30,
-        endIndent: MediaQuery.of(context).size.width / 6,
+        endIndent: MediaQuery.of(context).size.width / 8,
         color: ColorItems().colorWhite,
-        thickness: 0.5,
+        thickness: 1.5,
       ),
     );
   }
