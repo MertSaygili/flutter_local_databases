@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_local_databases/SQFlite/widgets/custom_icon_button.dart';
-
 import '../../constants/constanst.dart';
+import 'custom_alert_dialog.dart';
 
 class CustomStackClose extends StatefulWidget {
   const CustomStackClose({super.key, required this.fun});
@@ -32,7 +31,7 @@ class _CustomStackCloseState extends State<CustomStackClose> {
               context: context,
               barrierDismissible: true,
               builder: (context) {
-                return const _CustomAlertDialog();
+                return const CustomAlertDialog();
               });
           if (result) {
             widget.fun();
@@ -52,37 +51,6 @@ class _CustomStackCloseState extends State<CustomStackClose> {
         color: ColorItems().colorWhite,
         thickness: 1.5,
       ),
-    );
-  }
-}
-
-class _CustomAlertDialog extends StatelessWidget {
-  const _CustomAlertDialog({
-    Key? key,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return AlertDialog(
-      contentPadding: PaddingItems().paddingDialogBox,
-      titlePadding: PaddingItems().paddingZero,
-      title: Align(
-        alignment: Alignment.topRight,
-        child: CustomIconButton(
-          fun: () => Navigator.of(context).pop<bool>(false),
-          icon: IconItems().iconClose,
-        ),
-      ),
-      content: Text(
-        'Are you sure to delete employee?',
-        style: Theme.of(context).textTheme.headlineMedium,
-      ),
-      actions: [
-        CustomIconButton(
-          fun: () => Navigator.of(context).pop<bool>(true),
-          icon: IconItems().iconRemoveCircle,
-        ),
-      ],
     );
   }
 }

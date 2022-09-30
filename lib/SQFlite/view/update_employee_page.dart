@@ -46,6 +46,5 @@ class _UpdateEmployeePageViewState extends State<UpdateEmployeePageView> {
 
   void _takeEmployeeInformation() async {
     _employeeModel = await widget.db.searchById(_id);
-    print(_employeeModel.name);
   }
 }
