@@ -1,5 +1,8 @@
+// ignore_for_file: use_build_context_synchronously
+
 import 'package:flutter/material.dart';
 import 'package:flutter_local_databases/SQFlite/core/database/database_manager.dart';
+import 'package:flutter_local_databases/SQFlite/view/update_employee_informations.dart';
 import 'package:flutter_local_databases/SQFlite/widgets/custom_appbar.dart';
 import 'package:flutter_local_databases/SQFlite/widgets/custom_floatingactionbutton.dart';
 import 'package:flutter_local_databases/SQFlite/widgets/custom_search_textfield.dart';
@@ -46,5 +49,14 @@ class _UpdateEmployeePageViewState extends State<UpdateEmployeePageView> {
 
   void _takeEmployeeInformation() async {
     _employeeModel = await widget.db.searchById(_id);
+
+    Navigator.of(context).push(
+      MaterialPageRoute(builder: (context) {
+        return UpdateEmployeeInformations(
+          employeeModel: _employeeModel,
+          db: widget.db,
+        );
+      }),
+    );
   }
 }

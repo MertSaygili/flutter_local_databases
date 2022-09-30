@@ -47,6 +47,7 @@ class _CustomSearchTextFieldState extends State<CustomSearchTextField> {
         inputAction: _inputAction,
         inputType: _inputType,
         suffixIcon: _suffixIcon,
+        readOnly: false,
       ),
     );
   }

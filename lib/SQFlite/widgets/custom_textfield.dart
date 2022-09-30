@@ -10,6 +10,7 @@ class CustomTextfield extends StatefulWidget {
     required this.inputAction,
     required this.inputType,
     required this.suffixIcon,
+    this.readOnly,
   });
 
   final Function fun;
@@ -18,13 +19,23 @@ class CustomTextfield extends StatefulWidget {
   final TextInputAction inputAction;
   final TextInputType inputType;
   final Icon suffixIcon;
+  final bool? readOnly;
 
   @override
   State<CustomTextfield> createState() => _CustomTextfieldState();
 }
 
 class _CustomTextfieldState extends State<CustomTextfield> {
+  late final bool _readOnly;
   String _callbackText = '';
+
+  @override
+  void initState() {
+    super.initState();
+    if (widget.readOnly == null) {
+      _readOnly = false;
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -35,6 +46,7 @@ class _CustomTextfieldState extends State<CustomTextfield> {
           _callbackText = '${widget.labelText}.$value';
           widget.fun(_callbackText);
         },
+        readOnly: _readOnly,
         cursorColor: ColorItems().colorWhite,
         textInputAction: widget.inputAction,
         keyboardType: widget.inputType,

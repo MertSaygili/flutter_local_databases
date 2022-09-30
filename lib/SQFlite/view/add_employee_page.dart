@@ -23,7 +23,7 @@ class _AddEmployeePageViewState extends State<AddEmployeePageView> {
   final TextInputType _inputTypeText = TextInputType.text;
   final TextInputType _inputTypePhone = TextInputType.phone;
   final TextInputType _inputTypeEmail = TextInputType.emailAddress;
-  final _TempEmployeeModelValues _tempValues = _TempEmployeeModelValues();
+  final TempEmployeeModelValues _tempValues = TempEmployeeModelValues();
 
   @override
   Widget build(BuildContext context) {
@@ -40,6 +40,7 @@ class _AddEmployeePageViewState extends State<AddEmployeePageView> {
               inputType: _inputTypeText,
               suffixIcon: IconItems().iconAccountCircle,
               fun: _saveText,
+              readOnly: false,
             ),
             CustomTextfield(
               labelText: 'surname',
@@ -48,6 +49,7 @@ class _AddEmployeePageViewState extends State<AddEmployeePageView> {
               inputType: _inputTypeText,
               suffixIcon: IconItems().iconStarsSharp,
               fun: _saveText,
+              readOnly: false,
             ),
             CustomTextfield(
               labelText: 'department',
@@ -56,6 +58,7 @@ class _AddEmployeePageViewState extends State<AddEmployeePageView> {
               inputType: _inputTypeText,
               suffixIcon: IconItems().iconBuild,
               fun: _saveText,
+              readOnly: false,
             ),
             CustomTextfield(
               labelText: 'phone',
@@ -64,6 +67,7 @@ class _AddEmployeePageViewState extends State<AddEmployeePageView> {
               inputType: _inputTypePhone,
               suffixIcon: IconItems().iconPhone,
               fun: _saveText,
+              readOnly: false,
             ),
             CustomTextfield(
               labelText: 'email',
@@ -72,6 +76,7 @@ class _AddEmployeePageViewState extends State<AddEmployeePageView> {
               inputType: _inputTypeEmail,
               suffixIcon: IconItems().iconEmail,
               fun: _saveText,
+              readOnly: false,
             ),
             _checkBoxExpanded(context),
             CustomFloatActionButton(fun: _addToDb, icon: IconItems().iconAdd),
@@ -154,7 +159,7 @@ class _AddEmployeePageViewState extends State<AddEmployeePageView> {
   }
 }
 
-class _TempEmployeeModelValues {
+class TempEmployeeModelValues {
   late String userName;
   late String userSurname;
   late String department;
