@@ -1,14 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_local_databases/SQFlite/core/database/database_manager.dart';
 import 'package:flutter_local_databases/SQFlite/core/model/employee_model.dart';
-import 'package:flutter_local_databases/SQFlite/view/add_employee_page.dart';
 import 'package:flutter_local_databases/SQFlite/widgets/custom_appbar.dart';
 import 'package:flutter_local_databases/SQFlite/widgets/custom_elevatedbutton.dart';
 
 import '../../constants/constanst.dart';
 import '../widgets/approve_dialog.dart';
 import '../widgets/custom_checkbox.dart';
-import '../widgets/custom_floatingactionbutton.dart';
 import '../widgets/custom_textfield.dart';
 
 class UpdateEmployeeInformations extends StatefulWidget {
