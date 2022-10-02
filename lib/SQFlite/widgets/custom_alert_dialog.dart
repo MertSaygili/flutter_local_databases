@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../constants/constanst.dart';
+import '../constants/constanst.dart';
 import 'custom_icon_button.dart';
 
 class CustomAlertDialog extends StatelessWidget {

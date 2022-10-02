@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_local_databases/SQFlite/view/main_page.dart';
 import 'package:flutter_local_databases/theme/dark_custom_theme.dart';
+import 'SharedPreferences/view/main_page.dart';
 
 void main() {
   runApp(const MyApp());

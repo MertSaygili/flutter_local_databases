@@ -5,7 +5,7 @@ import 'package:flutter_local_databases/SQFlite/core/database/database_manager.d
 import 'package:flutter_local_databases/SQFlite/core/model/employee_model.dart';
 import 'package:flutter_local_databases/SQFlite/view/show_employees_page.dart';
 import 'package:flutter_local_databases/SQFlite/widgets/custom_stack_close.dart';
-import 'package:flutter_local_databases/constants/constanst.dart';
+import 'package:flutter_local_databases/SQFlite/constants/constanst.dart';
 
 class CustomEmployeeCard extends StatefulWidget {
   const CustomEmployeeCard({

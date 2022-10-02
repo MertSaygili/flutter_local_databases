@@ -5,7 +5,7 @@ import 'package:flutter_local_databases/SQFlite/view/show_employees_page.dart';
 import 'package:flutter_local_databases/SQFlite/view/update_employee_page.dart';
 import 'package:flutter_local_databases/SQFlite/widgets/custom_appbar.dart';
 import 'package:flutter_local_databases/SQFlite/widgets/custom_elevatedbutton.dart';
-import 'package:flutter_local_databases/constants/constanst.dart';
+import 'package:flutter_local_databases/SQFlite/constants/constanst.dart';
 
 import '../core/database/database_manager.dart';
 

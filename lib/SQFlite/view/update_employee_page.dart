@@ -6,7 +6,7 @@ import 'package:flutter_local_databases/SQFlite/view/update_employee_information
 import 'package:flutter_local_databases/SQFlite/widgets/custom_appbar.dart';
 import 'package:flutter_local_databases/SQFlite/widgets/custom_floatingactionbutton.dart';
 import 'package:flutter_local_databases/SQFlite/widgets/custom_search_textfield.dart';
-import 'package:flutter_local_databases/constants/constanst.dart';
+import 'package:flutter_local_databases/SQFlite/constants/constanst.dart';
 
 import '../core/model/employee_model.dart';
 

@@ -6,7 +6,7 @@ import 'package:flutter_local_databases/SQFlite/widgets/custom_appbar.dart';
 import 'package:flutter_local_databases/SQFlite/widgets/custom_checkbox.dart';
 import 'package:flutter_local_databases/SQFlite/widgets/custom_floatingactionbutton.dart';
 import 'package:flutter_local_databases/SQFlite/widgets/custom_textfield.dart';
-import 'package:flutter_local_databases/constants/constanst.dart';
+import 'package:flutter_local_databases/SQFlite/constants/constanst.dart';
 
 class AddEmployeePageView extends StatefulWidget {
   const AddEmployeePageView({super.key, required this.db});

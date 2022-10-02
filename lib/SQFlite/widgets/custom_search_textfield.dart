@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 
 import 'package:flutter_local_databases/SQFlite/widgets/custom_textfield.dart';
 
-import '../../constants/constanst.dart';
+import '../constants/constanst.dart';
 
 class CustomSearchTextField extends StatefulWidget {
   const CustomSearchTextField({

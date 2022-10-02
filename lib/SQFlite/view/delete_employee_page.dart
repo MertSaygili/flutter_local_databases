@@ -4,7 +4,7 @@ import 'package:flutter_local_databases/SQFlite/core/model/employee_model.dart';
 import 'package:flutter_local_databases/SQFlite/widgets/custom_appbar.dart';
 import 'package:flutter_local_databases/SQFlite/widgets/custom_employee_card.dart';
 import 'package:flutter_local_databases/SQFlite/widgets/custom_search_textfield.dart';
-import 'package:flutter_local_databases/constants/constanst.dart';
+import 'package:flutter_local_databases/SQFlite/constants/constanst.dart';
 
 import '../widgets/custom_floatingactionbutton.dart';
 

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_local_databases/SQFlite/widgets/custom_icon_button.dart';
-import 'package:flutter_local_databases/constants/constanst.dart';
+import 'package:flutter_local_databases/SQFlite/constants/constanst.dart';
 
 class CustomApproveDialog extends StatelessWidget {
   const CustomApproveDialog({super.key, required this.text});
