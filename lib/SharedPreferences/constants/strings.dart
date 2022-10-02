@@ -1,3 +1,3 @@
-class Stringss {
+class Strings {
   String titleSettings = 'Settings';
 }

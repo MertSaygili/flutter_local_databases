@@ -1,15 +1,19 @@
 import 'package:flutter/material.dart';
 
 class FontSizes {
-  final double largeText = 28;
+  // text sizes
+  final double largeText = 26;
   final double mediumText = 24;
-  final double smallText = 16;
-  final double iconSize = 32;
+  final double smallText = 18;
+
+  // font sizes
+  final double iconSize = 28;
 }
 
 class ColorItems {
   final Color colorTransparent = Colors.transparent;
   final Color colorBlack = Colors.black;
+  final Color colorWhite = Colors.white;
 }
 
 class IconItems {
