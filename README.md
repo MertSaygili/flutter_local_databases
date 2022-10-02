@@ -2,4 +2,4 @@
 
 Documentation about flutter databases
 
-## [SQFllite](lib/SQFlite)
+## [SQFlite](lib/SQFlite)

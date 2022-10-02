@@ -11,9 +11,9 @@
 - Path provider -> https://pub.dev/packages/path_provider
 
 ## Screeenshots
-| Main Screen | Show Employees Screen |
-| ----------- | --------------------- | 
-|<img src="readme_images/main_screen.png" height="600" /> | <img src="readme_images/show_employees_screen.png" height="600" />|
+| Main Screen | Show Employees Screen | Add Employee Screen |
+| ----------- | --------------------- | ------------------- |
+|<img src="readme_images/main_screen.png" height="600" /> | <img src="readme_images/show_employees_screen.png" height="600" />| <img src="readme_images/add_employee.png" height="600" /> |
 
 | Update Screen | Update Information Screen |
 | ----------- | --------------------- | 
