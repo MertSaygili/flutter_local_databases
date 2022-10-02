@@ -1,5 +1,7 @@
 import 'package:shared_preferences/shared_preferences.dart';
 
+enum SharedKeys { count }
+
 class SharedManager {
   SharedPreferences? _preferences;
 
@@ -22,8 +24,8 @@ class SharedManager {
   // returns integer value
   Future<int> getInt(SharedKeys key) async {
     _checkPreferences();
-    return _preferences?.getInt(key.name) ?? -9999;
-    // i put -9999 as an default error value
+    return _preferences?.getInt(key.name) ?? 0;
+    // i put 0 as an default error value
   }
 
   // returns double value
@@ -95,5 +97,3 @@ class SharedManager {
     if (_preferences == null) throw 'Preferences Error';
   }
 }
-
-enum SharedKeys { country }
