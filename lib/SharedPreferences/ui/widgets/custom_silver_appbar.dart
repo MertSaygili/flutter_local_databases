@@ -3,7 +3,7 @@ import 'package:flutter/services.dart';
 
 import '../../constants/constants.dart';
 
-class CustomSilverAppBar extends StatelessWidget with PreferredSizeWidget {
+class CustomSilverAppBar extends StatelessWidget {
   const CustomSilverAppBar({
     super.key,
     required this.title,
@@ -49,7 +49,4 @@ class CustomSilverAppBar extends StatelessWidget with PreferredSizeWidget {
       ),
     );
   }
-
-  @override
-  Size get preferredSize => Size.fromHeight(_prefferedSizeHeight);
 }
