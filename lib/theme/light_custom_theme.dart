@@ -17,11 +17,17 @@ class CustomLightTheme {
         size: _fontSizes.iconSize,
       ),
       textTheme: TextTheme(
-        headlineMedium: TextStyle(
-          fontSize: _fontSizes.mediumText,
+        headlineLarge: TextStyle(
+          fontSize: _fontSizes.largeHeadline,
           color: _colors.colorBlack,
           letterSpacing: 0.8,
           fontWeight: FontWeight.w700,
+        ),
+        headlineMedium: TextStyle(
+          fontSize: _fontSizes.mediumHeadline,
+          color: _colors.colorBlack,
+          letterSpacing: 0.5,
+          fontWeight: FontWeight.w500,
         ),
       ),
     );

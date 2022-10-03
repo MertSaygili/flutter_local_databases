@@ -1,9 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_local_databases/SharedPreferences/constants/strings.dart';
-import 'package:flutter_local_databases/SharedPreferences/ui/widgets/custom_silver_appbar.dart';
-
-import '../../constants/constants.dart';
-import '../widgets/k.dart';
+import '../widgets/custom_persistent_sliver_appbar.dart';
 
 class MainPageView extends StatefulWidget {
   const MainPageView({super.key});
@@ -20,18 +17,13 @@ class _MainPageViewState extends State<MainPageView> {
     return Scaffold(
       body: CustomScrollView(
         slivers: <Widget>[
-          // SliverPersistentHeader(
-          //   pinned: true,
-          //   floating: true,
-          //   delegate: MySliverAppBar(
-          //     expandedHeight: 200,
-          //     title: _strings.titleSettings,
-          //     icon: IconItems().iconSettings,
-          //   ),
-          // ),
-          CustomSilverAppBar(
-            title: _strings.titleSettings,
-            icon: IconItems().iconSettings,
+          SliverPersistentHeader(
+            delegate: CustomPersistenSliverAppbar(
+              expandedHeight: 200,
+              title: _strings.titleSettings,
+            ),
+            pinned: true,
+            floating: true,
           ),
           SliverList(
             delegate: SliverChildBuilderDelegate(
