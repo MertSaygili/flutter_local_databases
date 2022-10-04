@@ -1,3 +1,3 @@
 class Strings {
-  String titleSettings = 'Settings';
+  String titleToDo = 'ToDo';
 }

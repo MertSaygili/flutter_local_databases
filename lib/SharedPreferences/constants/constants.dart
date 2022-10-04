@@ -16,8 +16,10 @@ class ColorItems {
   final Color colorTransparent = Colors.transparent;
   final Color colorBlack = Colors.black;
   final Color colorWhite = Colors.white;
+  final Color colorGreen = Colors.green;
+  final Color? colorGreen500 = Colors.green[500];
 }
 
 class IconItems {
-  final Icon iconSettings = const Icon(Icons.settings);
+  final Icon iconNoteadd = const Icon(Icons.note_add_outlined);
 }
