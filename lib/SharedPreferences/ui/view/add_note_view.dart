@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
+import 'package:flutter_local_databases/SharedPreferences/constants/strings.dart';
+import 'package:flutter_local_databases/SharedPreferences/ui/widgets/custom_appbar.dart';
+
+import 'custom_textfield.dart';
 
 class AddNoteView extends StatefulWidget {
   const AddNoteView({super.key});
@@ -10,8 +12,19 @@ class AddNoteView extends StatefulWidget {
 }
 
 class _AddNoteViewState extends State<AddNoteView> {
+  final Strings _strings = Strings();
+
   @override
   Widget build(BuildContext context) {
-    return Scaffold();
+    return Scaffold(
+      appBar: CustomAppbar(
+        prefferedSize: Doubles().prefferedSize,
+        title: CustomTextfield(
+          hintText: _strings.titleNote,
+          fun: (String value) {},
+        ),
+        fun: () {},
+      ),
+    );
   }
 }

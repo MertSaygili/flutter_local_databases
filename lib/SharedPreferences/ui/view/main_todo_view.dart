@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_local_databases/SharedPreferences/constants/strings.dart';
+import 'package:flutter_local_databases/SharedPreferences/ui/view/add_note_view.dart';
 import 'package:flutter_local_databases/SharedPreferences/ui/widgets/custom_appbar.dart';
 
 class MainTodoView extends StatefulWidget {
@@ -11,18 +12,25 @@ class MainTodoView extends StatefulWidget {
 
 class _MainTodoViewState extends State<MainTodoView> {
   final Strings _strings = Strings();
-  final double _prefferedSize = 60;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: CustomAppbar(
-        prefferedSize: _prefferedSize,
+        prefferedSize: Doubles().prefferedSize,
         title: _returnTextTitle(),
-        fun: () {},
+        fun: () => _navigateToAddNotePage(),
       ),
     );
   }
 
   Widget _returnTextTitle() => Text(_strings.titleToDo);
+
+  void _navigateToAddNotePage() {
+    Navigator.of(context).push(MaterialPageRoute(
+      builder: (context) {
+        return const AddNoteView();
+      },
+    ));
+  }
 }

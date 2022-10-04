@@ -22,4 +22,10 @@ class ColorItems {
 
 class IconItems {
   final Icon iconNoteadd = const Icon(Icons.note_add_outlined);
+  final Icon iconSportBasketball = const Icon(Icons.sports_basketball_sharp);
+  final Icon iconRemove = const Icon(Icons.remove);
+}
+
+class PaddingItems {
+  final EdgeInsets paddingAppbarTextfield = const EdgeInsets.only(top: 15);
 }
