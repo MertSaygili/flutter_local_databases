@@ -14,6 +14,8 @@ class CustomTextfield extends StatefulWidget {
 }
 
 class _CustomTextfieldState extends State<CustomTextfield> {
+  final ColorItems _colors = ColorItems();
+
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -40,5 +42,8 @@ class _CustomTextfieldState extends State<CustomTextfield> {
         hintText: widget.hintText,
         hintStyle: Theme.of(context).textTheme.labelMedium,
         labelStyle: Theme.of(context).textTheme.labelMedium,
+        focusColor: _colors.colorBlack,
+        hoverColor: _colors.colorBlack,
+        fillColor: _colors.colorBlack,
       );
 }

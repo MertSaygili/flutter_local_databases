@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_local_databases/SharedPreferences/constants/constants.dart';
 import 'package:flutter_local_databases/SharedPreferences/constants/strings.dart';
 import 'package:flutter_local_databases/SharedPreferences/ui/view/add_note_view.dart';
 import 'package:flutter_local_databases/SharedPreferences/ui/widgets/custom_appbar.dart';
@@ -20,6 +21,8 @@ class _MainTodoViewState extends State<MainTodoView> {
         prefferedSize: Doubles().prefferedSize,
         title: _returnTextTitle(),
         fun: () => _navigateToAddNotePage(),
+        toolTip: _strings.addNoteTip,
+        icon: IconItems().iconNoteadd,
       ),
     );
   }

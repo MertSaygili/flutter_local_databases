@@ -1,6 +1,8 @@
 class Strings {
   final String titleToDo = 'ToDo';
-  final String titleNote = 'Note name';
+  final String titleEnterNote = 'enter note name';
+  final String addNoteTip = 'Add note';
+  final String deleteNoteTip = 'Delete note';
 }
 
 class Doubles {

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_local_databases/SharedPreferences/constants/constants.dart';
 import 'package:flutter_local_databases/SharedPreferences/constants/strings.dart';
 import 'package:flutter_local_databases/SharedPreferences/ui/widgets/custom_appbar.dart';
 
@@ -20,10 +21,12 @@ class _AddNoteViewState extends State<AddNoteView> {
       appBar: CustomAppbar(
         prefferedSize: Doubles().prefferedSize,
         title: CustomTextfield(
-          hintText: _strings.titleNote,
+          hintText: _strings.titleEnterNote,
           fun: (String value) {},
         ),
         fun: () {},
+        toolTip: _strings.deleteNoteTip,
+        icon: IconItems().iconDelete,
       ),
     );
   }
