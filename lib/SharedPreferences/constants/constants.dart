@@ -12,6 +12,11 @@ class FontSizes {
   final double iconSize = 34;
 }
 
+class Doubles {
+  final double prefferedSize = 70;
+  final int maxLength = 20;
+}
+
 class ColorItems {
   final Color colorTransparent = Colors.transparent;
   final Color colorBlack = Colors.black;
