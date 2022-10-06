@@ -16,8 +16,7 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Local Databases',
       // dark theme
       theme: CustomDarkTheme().theme,
-      // light theme
-      // theme: CustomLightTheme().theme,
+      // light theme-> theme: CustomLightTheme().theme,
       home: const MainTodoView(),
     );
   }
