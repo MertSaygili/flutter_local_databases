@@ -62,10 +62,8 @@ class _AddNoteViewState extends State<AddNoteView> {
   void _addNote() {
     if (_noteName.isNotEmpty && _noteContent.isNotEmpty) {
       // add to shared_preferences
-      print('x1');
     } else {
       // do not do anything
-      print('x2');
     }
   }
 
