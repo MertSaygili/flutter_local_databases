@@ -10,6 +10,7 @@ class CustomAppbar extends StatefulWidget with PreferredSizeWidget {
     required this.fun,
     required this.toolTip,
     required this.icon,
+    this.leading,
   });
 
   final double prefferedSize;
@@ -17,6 +18,7 @@ class CustomAppbar extends StatefulWidget with PreferredSizeWidget {
   final Function fun;
   final String toolTip;
   final Icon icon;
+  final IconButton? leading;
 
   @override
   State<CustomAppbar> createState() => _CustomAppbarState();
@@ -31,11 +33,13 @@ class _CustomAppbarState extends State<CustomAppbar> {
   @override
   Widget build(BuildContext context) {
     return AppBar(
+      leading: widget.leading,
       title: widget.title,
       centerTitle: false,
       elevation: _elevation,
       backgroundColor: ColorItems().colorGreen500 ?? ColorItems().colorGreen,
       systemOverlayStyle: SystemUiOverlayStyle.dark,
+      automaticallyImplyLeading: false,
       iconTheme: Theme.of(context).iconTheme,
       titleTextStyle: Theme.of(context).textTheme.titleMedium,
       actionsIconTheme: Theme.of(context).iconTheme,

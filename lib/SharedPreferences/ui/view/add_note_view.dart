@@ -30,6 +30,7 @@ class _AddNoteViewState extends State<AddNoteView> {
         fun: _deleteNote,
         toolTip: _strings.deleteNoteTip,
         icon: IconItems().iconDelete,
+        leading: _customLeadingAppbarButton(),
       ),
       body: CustomTextarea(
         fun: _setContent,
@@ -48,17 +49,29 @@ class _AddNoteViewState extends State<AddNoteView> {
     );
   }
 
-  void _setString(String value) {
-    setState(() {
-      _noteName = value;
-    });
+  IconButton _customLeadingAppbarButton() {
+    return IconButton(
+      onPressed: () {
+        _addNote();
+        Navigator.of(context).pop();
+      },
+      icon: IconItems().iconArrowBack,
+    );
   }
 
-  void _setContent(String value) {
-    setState(() {
-      _noteContent = value;
-    });
+  void _addNote() {
+    if (_noteName.isNotEmpty && _noteContent.isNotEmpty) {
+      // add to shared_preferences
+      print('x1');
+    } else {
+      // do not do anything
+      print('x2');
+    }
   }
+
+  void _setString(String value) => setState(() => _noteName = value);
+
+  void _setContent(String value) => setState(() => _noteContent = value);
 
   void _deleteNote() {}
 }

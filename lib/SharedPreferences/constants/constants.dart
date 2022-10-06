@@ -29,8 +29,13 @@ class IconItems {
   final Icon iconNoteadd = const Icon(Icons.note_add_outlined);
   final Icon iconSportBasketball = const Icon(Icons.sports_basketball_sharp);
   final Icon iconDelete = const Icon(Icons.delete);
+  final Icon iconArrowBack = const Icon(Icons.arrow_back_outlined);
 }
 
 class PaddingItems {
   final EdgeInsets paddingAppbarTextfield = const EdgeInsets.only(top: 15);
+  final EdgeInsets paddingTextarea = const EdgeInsets.symmetric(
+    vertical: 15,
+    horizontal: 10,
+  );
 }

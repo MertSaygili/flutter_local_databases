@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_local_databases/SharedPreferences/constants/constants.dart';
 import 'package:flutter_local_databases/SharedPreferences/ui/widgets/custom_textfield.dart';
 
 class CustomTextarea extends StatefulWidget {
@@ -16,7 +17,7 @@ class _CustomTextareaState extends State<CustomTextarea> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(8.0),
+      padding: PaddingItems().paddingTextarea,
       child: SizedBox(
         height: MediaQuery.of(context).size.height / _heightRate,
         width: MediaQuery.of(context).size.width,
