@@ -14,15 +14,21 @@ class MainTodoView extends StatefulWidget {
 }
 
 class _MainTodoViewState extends State<MainTodoView> {
-  late final SharedManager _sharedManager;
+  final SharedManager _sharedManager = SharedManager();
   final Strings _strings = Strings();
   List<String> _notes = [];
 
   @override
   void initState() {
     super.initState();
-    _initSharedManager();
-    _getNotes();
+    _sharedManager.init();
+    asycnMethod();
+  }
+
+  void asycnMethod() async {
+    await _sharedManager.init();
+    _notes = await _sharedManager.getStringList(SharedKeys.notes);
+    setState(() {});
   }
 
   @override
@@ -45,18 +51,14 @@ class _MainTodoViewState extends State<MainTodoView> {
 
   Widget _returnTextTitle() => Text(_strings.titleToDo);
 
-  void _initSharedManager() async {
-    _sharedManager = SharedManager();
-    await _sharedManager.init();
-  }
-
-  void _getNotes() async {
-    _notes = await _sharedManager.getStringList(SharedKeys.notes);
-  }
-
   void _navigateToAddNotePage() {
     Navigator.of(context).push(
-      MaterialPageRoute(builder: (context) => const AddNoteView()),
+      MaterialPageRoute(
+        builder: (context) => AddNoteView(
+          sharedManager: _sharedManager,
+          notes: _notes,
+        ),
+      ),
     );
   }
 }

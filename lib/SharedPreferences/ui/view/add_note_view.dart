@@ -3,13 +3,21 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_local_databases/SharedPreferences/constants/constants.dart';
 import 'package:flutter_local_databases/SharedPreferences/constants/strings.dart';
+import 'package:flutter_local_databases/SharedPreferences/core/database/shared_preferences_manager.dart';
 import 'package:flutter_local_databases/SharedPreferences/ui/widgets/custom_appbar.dart';
 import 'package:flutter_local_databases/SharedPreferences/ui/widgets/custom_textarea.dart';
 
 import '../widgets/custom_textfield.dart';
 
 class AddNoteView extends StatefulWidget {
-  const AddNoteView({super.key});
+  const AddNoteView({
+    super.key,
+    required this.sharedManager,
+    required this.notes,
+  });
+
+  final SharedManager sharedManager;
+  final List<String> notes;
 
   @override
   State<AddNoteView> createState() => _AddNoteViewState();
@@ -59,10 +67,16 @@ class _AddNoteViewState extends State<AddNoteView> {
     );
   }
 
-  void _addNote() {
+  void _addNote() async {
     if (_noteName.isNotEmpty && _noteContent.isNotEmpty) {
       // add to shared_preferences
-      String value = '$_noteName.$_noteContent';
+      String value = "$_noteName.$_noteContent";
+
+      // adding new note to shared manager
+      final List<String> newNotes = widget.notes;
+      newNotes.add(value);
+
+      await widget.sharedManager.setStringList(newNotes, SharedKeys.notes);
     } else {
       // do not do anything
     }
