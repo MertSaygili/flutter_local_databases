@@ -1,6 +1,6 @@
 import 'package:shared_preferences/shared_preferences.dart';
 
-enum SharedKeys { count }
+enum SharedKeys { notes }
 
 class SharedManager {
   SharedPreferences? _preferences;

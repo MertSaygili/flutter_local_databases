@@ -62,6 +62,7 @@ class _AddNoteViewState extends State<AddNoteView> {
   void _addNote() {
     if (_noteName.isNotEmpty && _noteContent.isNotEmpty) {
       // add to shared_preferences
+      String value = '$_noteName.$_noteContent';
     } else {
       // do not do anything
     }
