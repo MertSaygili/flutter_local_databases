@@ -12,10 +12,12 @@ import '../widgets/custom_textfield.dart';
 class AddNoteView extends StatefulWidget {
   const AddNoteView({
     super.key,
-    required this.appbarleading,
+    required this.sharedManager,
+    required this.pop,
   });
 
-  final IconButton appbarleading;
+  final Function pop;
+  final SharedManager sharedManager;
 
   @override
   State<AddNoteView> createState() => _AddNoteViewState();
@@ -41,6 +43,13 @@ class _AddNoteViewState extends State<AddNoteView> {
       body: CustomTextarea(
         fun: _setContent,
       ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          _addNote();
+          widget.pop();
+        },
+        child: const Icon(Icons.add),
+      ),
     );
   }
 
@@ -59,25 +68,28 @@ class _AddNoteViewState extends State<AddNoteView> {
     return IconButton(
       onPressed: () {
         _addNote();
-        Navigator.of(context).pop();
+        widget.pop();
       },
       icon: IconItems().iconArrowBack,
     );
   }
 
   void _addNote() async {
+    // adds new note to shared preferences
     if (_noteName.isNotEmpty && _noteContent.isNotEmpty) {
-      // add to shared_preferences
       String value = "$_noteName.$_noteContent";
 
-      // adding new note to shared manager
-      final List<String> newNotes = widget.notes;
+      // gets old notes
+      List<String> oldNotes =
+          await widget.sharedManager.getStringList(SharedKeys.notes);
+
+      // adds new notes to old note and new note
+      final List<String> newNotes = oldNotes;
       newNotes.add(value);
 
       await widget.sharedManager.setStringList(newNotes, SharedKeys.notes);
-    } else {
-      // do not do anything
     }
+    // do nothing
   }
 
   void _setString(String value) => setState(() => _noteName = value);
