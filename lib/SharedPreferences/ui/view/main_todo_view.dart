@@ -17,6 +17,8 @@ class _MainTodoViewState extends State<MainTodoView> {
   final SharedManager _sharedManager = SharedManager();
   final Strings _strings = Strings();
   List<String> _notes = [];
+  String _noteName = '';
+  String _noteContent = '';
 
   @override
   void initState() {
@@ -58,18 +60,6 @@ class _MainTodoViewState extends State<MainTodoView> {
                   });
         }),
       ),
-
-      // ListView.builder(
-      //     itemCount: _notes.length,
-      //     itemBuilder: (context, index) {
-      //       return Padding(
-      //         padding: const EdgeInsets.only(top: 25),
-      //         child: ListTile(
-      //           title: Text(_notes[index].split('.')[0]),
-      //           subtitle: Text(_notes[index].split('.')[1]),
-      //         ),
-      //       );
-      //     }),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           _sharedManager.removeKey(SharedKeys.notes);
@@ -86,10 +76,34 @@ class _MainTodoViewState extends State<MainTodoView> {
     Navigator.of(context).push(
       MaterialPageRoute(
         builder: (context) => AddNoteView(
-          sharedManager: _sharedManager,
-          notes: _notes,
+          appbarleading: _customLeadingAppbarButton(),
         ),
       ),
     );
+  }
+
+  IconButton _customLeadingAppbarButton() {
+    return IconButton(
+      onPressed: () {
+        _addNote();
+        Navigator.of(context).pop();
+      },
+      icon: IconItems().iconArrowBack,
+    );
+  }
+
+  void _addNote() async {
+    if (_noteName.isNotEmpty && _noteContent.isNotEmpty) {
+      // add to shared_preferences
+      String value = "$_noteName.$_noteContent";
+
+      // adding new note to shared manager
+      final List<String> newNotes = widget.notes;
+      newNotes.add(value);
+
+      await widget.sharedManager.setStringList(newNotes, SharedKeys.notes);
+    } else {
+      // do not do anything
+    }
   }
 }

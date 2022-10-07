@@ -12,12 +12,10 @@ import '../widgets/custom_textfield.dart';
 class AddNoteView extends StatefulWidget {
   const AddNoteView({
     super.key,
-    required this.sharedManager,
-    required this.notes,
+    required this.appbarleading,
   });
 
-  final SharedManager sharedManager;
-  final List<String> notes;
+  final IconButton appbarleading;
 
   @override
   State<AddNoteView> createState() => _AddNoteViewState();
