@@ -27,8 +27,6 @@ class _MainTodoViewState extends State<MainTodoView> {
 
   void asycnMethod() async {
     await _sharedManager.init();
-    _notes = await _sharedManager.getStringList(SharedKeys.notes);
-    setState(() {});
   }
 
   @override
@@ -41,11 +39,44 @@ class _MainTodoViewState extends State<MainTodoView> {
         toolTip: _strings.addNoteTip,
         icon: IconItems().iconNoteadd,
       ),
-      body: ListView.builder(
-          itemCount: _notes.length,
-          itemBuilder: (context, index) {
-            return const Text('s');
-          }),
+      body: FutureBuilder(
+        future: _sharedManager.getStringList(SharedKeys.notes),
+        initialData: const [],
+        builder: ((context, snapshot) {
+          var data = snapshot.data;
+          var dataLength = data?.length ?? 0;
+
+          return dataLength == 0
+              ? const Center(child: Text('No data found'))
+              : ListView.builder(
+                  itemCount: dataLength,
+                  itemBuilder: (context, index) {
+                    return ListTile(
+                      title: Text(data?[index].split('.')[0]),
+                      subtitle: Text(data?[index].split('.')[1]),
+                    );
+                  });
+        }),
+      ),
+
+      // ListView.builder(
+      //     itemCount: _notes.length,
+      //     itemBuilder: (context, index) {
+      //       return Padding(
+      //         padding: const EdgeInsets.only(top: 25),
+      //         child: ListTile(
+      //           title: Text(_notes[index].split('.')[0]),
+      //           subtitle: Text(_notes[index].split('.')[1]),
+      //         ),
+      //       );
+      //     }),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          _sharedManager.removeKey(SharedKeys.notes);
+          setState(() {});
+        },
+        child: IconItems().iconDelete,
+      ),
     );
   }
 
