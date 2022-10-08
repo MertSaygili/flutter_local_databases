@@ -3,6 +3,7 @@ import 'package:flutter_local_databases/SharedPreferences/constants/strings.dart
 import 'package:flutter_local_databases/SharedPreferences/core/database/shared_preferences_manager.dart';
 import 'package:flutter_local_databases/SharedPreferences/ui/view/add_note_view.dart';
 import 'package:flutter_local_databases/SharedPreferences/ui/widgets/custom_appbar.dart';
+import 'package:flutter_local_databases/SharedPreferences/ui/widgets/custom_todo_card.dart';
 
 import '../../constants/constants.dart';
 
@@ -16,13 +17,18 @@ class MainTodoView extends StatefulWidget {
 class _MainTodoViewState extends State<MainTodoView> {
   final SharedManager _sharedManager = SharedManager();
   final Strings _strings = Strings();
-  List<String> _notes = [];
 
   @override
   void initState() {
     super.initState();
     _sharedManager.init();
     asycnMethod();
+  }
+
+  @override
+  void didUpdateWidget(covariant MainTodoView oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    setState(() {});
   }
 
   void asycnMethod() async {
@@ -51,9 +57,9 @@ class _MainTodoViewState extends State<MainTodoView> {
               : ListView.builder(
                   itemCount: dataLength,
                   itemBuilder: (context, index) {
-                    return ListTile(
-                      title: Text(data?[index].split('.')[0]),
-                      subtitle: Text(data?[index].split('.')[1]),
+                    return CustomTodoCard(
+                      title: data?[index].split('.')[0] ?? '',
+                      subtitle: data?[index].split('.')[1] ?? '',
                     );
                   });
         }),
@@ -75,7 +81,6 @@ class _MainTodoViewState extends State<MainTodoView> {
       MaterialPageRoute(
         builder: (context) => AddNoteView(
           sharedManager: _sharedManager,
-          notes: _notes,
           pop: _pop,
         ),
       ),
