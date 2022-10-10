@@ -8,27 +8,16 @@ import 'package:flutter_local_databases/SharedPreferences/ui/widgets/custom_todo
 import '../../constants/constants.dart';
 
 class MainTodoView extends StatefulWidget {
-  const MainTodoView({super.key});
+  const MainTodoView({super.key, required this.sharedManager});
+
+  final SharedManager sharedManager;
 
   @override
   State<MainTodoView> createState() => _MainTodoViewState();
 }
 
 class _MainTodoViewState extends State<MainTodoView> {
-  final SharedManager _sharedManager = SharedManager();
   final Strings _strings = Strings();
-
-  @override
-  void initState() {
-    super.initState();
-    _sharedManager.init();
-    asycnMethod();
-  }
-
-  void asycnMethod() async {
-    await _sharedManager.init();
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -40,7 +29,7 @@ class _MainTodoViewState extends State<MainTodoView> {
         icon: IconItems().iconNoteadd,
       ),
       body: FutureBuilder(
-        future: _sharedManager.getStringList(SharedKeys.notes),
+        future: widget.sharedManager.getStringList(SharedKeys.notes),
         initialData: const [],
         builder: ((context, snapshot) {
           var data = snapshot.data;
@@ -60,7 +49,7 @@ class _MainTodoViewState extends State<MainTodoView> {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          _sharedManager.removeKey(SharedKeys.notes);
+          widget.sharedManager.removeKey(SharedKeys.notes);
           setState(() {});
         },
         child: IconItems().iconDelete,
@@ -74,7 +63,7 @@ class _MainTodoViewState extends State<MainTodoView> {
     Navigator.of(context).push(
       MaterialPageRoute(
         builder: (context) => AddNoteView(
-          sharedManager: _sharedManager,
+          sharedManager: widget.sharedManager,
           pop: _pop,
         ),
       ),

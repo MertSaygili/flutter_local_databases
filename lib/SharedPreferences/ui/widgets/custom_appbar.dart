@@ -7,17 +7,17 @@ class CustomAppbar extends StatefulWidget with PreferredSizeWidget {
     super.key,
     required this.prefferedSize,
     required this.title,
-    required this.fun,
-    required this.toolTip,
-    required this.icon,
+    this.fun,
+    this.toolTip,
+    this.icon,
     this.leading,
   });
 
   final double prefferedSize;
   final Widget title;
-  final Function fun;
-  final String toolTip;
-  final Icon icon;
+  final Function? fun;
+  final String? toolTip;
+  final Icon? icon;
   final IconButton? leading;
 
   @override
@@ -45,8 +45,8 @@ class _CustomAppbarState extends State<CustomAppbar> {
       actionsIconTheme: Theme.of(context).iconTheme,
       actions: [
         IconButton(
-          onPressed: () => widget.fun(),
-          icon: widget.icon,
+          onPressed: () => widget.fun!(),
+          icon: widget.icon ?? const SizedBox(),
           tooltip: widget.toolTip,
         )
       ],
