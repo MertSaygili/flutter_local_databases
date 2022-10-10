@@ -25,12 +25,6 @@ class _MainTodoViewState extends State<MainTodoView> {
     asycnMethod();
   }
 
-  @override
-  void didUpdateWidget(covariant MainTodoView oldWidget) {
-    super.didUpdateWidget(oldWidget);
-    setState(() {});
-  }
-
   void asycnMethod() async {
     await _sharedManager.init();
   }
@@ -58,8 +52,8 @@ class _MainTodoViewState extends State<MainTodoView> {
                   itemCount: dataLength,
                   itemBuilder: (context, index) {
                     return CustomTodoCard(
-                      title: data?[index].split('.')[0] ?? '',
-                      subtitle: data?[index].split('.')[1] ?? '',
+                      title: data![index].split('.')[0],
+                      subtitle: data[index].split('.')[1],
                     );
                   });
         }),
